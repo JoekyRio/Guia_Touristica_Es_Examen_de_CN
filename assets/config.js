@@ -4,5 +4,5 @@
 // 然后把项目的 URL 与 anon key 粘贴到下面两处引号内即可。
 const SUPABASE_CONFIG = {
   url: "https://dbskzvvnpgtfdmzfemn.supabase.co",        // 例如 "https://xxxxxxxxxxxx.supabase.co"
-  anonKey: "sb_publishable_A0PQgM4NIxKtgDSl0brEdA_iqgHV8Dp"     // 例如 "eyJhbGciOiJIUzI1NiIs..."
+  anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRic2t6dnZucGd0ZmRybnpmZW1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyNjQyNjQsImV4cCI6MjEwNDg0MDI2NH0.Td9dHUJiBhZo-ZZOoctoeNo39SMnkPVT66SUZCSQSDI"     // 例如 "eyJhbGciOiJIUzI1NiIs..."
 };
