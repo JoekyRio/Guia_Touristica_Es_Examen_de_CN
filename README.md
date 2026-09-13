@@ -1,3 +1,3 @@
-# Test-1-of-Rio
-我的第一个仓库，for Data Science Learning
-I am so happy! Hello World!!
+# Guia_Touristica_Es_Examen_de_CN
+This is my first working repo
+This is repo is designed to facilitate preparation for Spanish Tour Guide Exam in China
