@@ -8,7 +8,7 @@
 
 const SUPABASE_CONFIG = {
   // Supabase 直连地址（直连不稳定，建议用代理）
-  url: "https://dbskzvvnpgtfdmzfemn.supabase.co",
+  url: "https://dbskzvvnpgtfdrnzfemn.supabase.co",
   anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRic2t6dnZucGd0ZmRybnpmZW1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyNjQyNjQsImV4cCI6MjEwNDg0MDI2NH0.Td9dHUJiBhZo-ZZOoctoeNo39SMnkPVT66SUZCSQSDI",
   // Cloudflare Worker 代理地址，部署后填这里。例如 "https://my-proxy.xxx.workers.dev"
   proxyUrl: "https://shy-hall-dbd0.zhangjietong.workers.dev"
