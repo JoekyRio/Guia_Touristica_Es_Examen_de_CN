@@ -310,7 +310,8 @@ function loadTranslations() { try { const s = localStorage.getItem(TR_KEY); if (
 function persistTranslations() { localStorage.setItem(TR_KEY, JSON.stringify(translations)); }
 
 // ===== Supabase 云同步（REST，无需 SDK）=====
-function supabaseEnabled() { return typeof SUPABASE_CONFIG !== 'undefined' && SUPABASE_CONFIG.url && SUPABASE_CONFIG.anonKey; }
+function supabaseEnabled() { return typeof SUPABASE_CONFIG !== 'undefined' && (SUPABASE_CONFIG.url || SUPABASE_CONFIG.proxyUrl) && SUPABASE_CONFIG.anonKey; }
+function getBaseUrl() { return (SUPABASE_CONFIG.proxyUrl || SUPABASE_CONFIG.url || '').replace(/\/$/, ''); }
 function sbHeaders() {
   return { 'apikey': SUPABASE_CONFIG.anonKey, 'Authorization': 'Bearer ' + SUPABASE_CONFIG.anonKey, 'Content-Type': 'application/json' };
 }
@@ -324,7 +325,7 @@ function setSync(state, msg) {
   txt.title = msg || '';
 }
 async function cloudRead() {
-  const url = SUPABASE_CONFIG.url + '/rest/v1/notebook_store?id=eq.default&select=data';
+  const url = getBaseUrl() + '/rest/v1/notebook_store?id=eq.default&select=data';
   const res = await fetch(url, { headers: sbHeaders() });
   if (!res.ok) {
     let detail = '';
@@ -335,7 +336,7 @@ async function cloudRead() {
   return (arr && arr.length) ? (arr[0].data || null) : null;
 }
 async function cloudWrite(payload) {
-  const url = SUPABASE_CONFIG.url + '/rest/v1/notebook_store';
+  const url = getBaseUrl() + '/rest/v1/notebook_store';
   const res = await fetch(url, {
     method: 'POST',
     headers: Object.assign({}, sbHeaders(), { 'Prefer': 'resolution=merge-duplicates,return=minimal' }),
@@ -407,7 +408,7 @@ async function testConnection() {
   } catch(e) {
     console.warn('连接测试失败', e);
     setSync('fail', '连接失败：' + e.message);
-    alert('连接 Supabase 失败：\n\n' + e.message + '\n\n可能原因：\n1. 网络/防火墙拦截了 supabase.co\n2. Supabase 项目被暂停（需到 Dashboard 唤醒）\n3. anonKey 不正确');
+    alert('连接失败：\n\n' + e.message + '\n\n常见原因与解决：\n1. 国内网络直连 supabase.co 被拦截 → 部署 Cloudflare Worker 代理（见 supabase-proxy-worker.js）\n2. Supabase 免费项目被暂停 → 到 Dashboard 点唤醒\n3. anonKey 不正确 → 检查 config.js');
   }
 }
 
