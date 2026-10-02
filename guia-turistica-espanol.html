@@ -86,6 +86,16 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 .notebook-header .nb-title { font-weight: 700; font-size: 0.9rem; color: var(--accent); display: flex; justify-content: space-between; align-items: center; }
 .notebook-header .nb-sub { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
 .nb-toolbar { display: flex; gap: 6px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
+.sync-status { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 0.72rem; }
+.sync-dot { width: 8px; height: 8px; border-radius: 50%; background: #bbb; flex-shrink: 0; }
+.sync-dot.ok { background: var(--green); }
+.sync-dot.fail { background: var(--accent); }
+.sync-dot.syncing { background: var(--accent2); animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.sync-text { color: var(--muted); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sync-text.ok { color: var(--green); }
+.sync-text.fail { color: var(--accent); }
+.sync-test-btn { padding: 3px 8px; font-size: 0.68rem; flex-shrink: 0; }
 .nb-toolbar input { flex: 1; min-width: 0; padding: 5px 10px; border: 1px solid var(--rule); border-radius: 6px; font-size: 0.78rem; outline: none; background: var(--bg); }
 .mini-btn { padding: 5px 9px; border: 1px solid var(--rule); border-radius: 6px; font-size: 0.72rem; font-weight: 600; cursor: pointer; background: var(--bg2); color: var(--ink); transition: var(--transition); white-space: nowrap; }
 .mini-btn:hover { background: var(--bg); }
@@ -224,6 +234,11 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
         <div class="notebook-header">
           <div class="nb-title"><span>📓 我的笔记本</span><span style="font-size:0.7rem;color:var(--muted)" id="nbCount"></span></div>
           <div class="nb-sub">选中教材里不认识的词/短语/语法，加入这里积累</div>
+          <div class="sync-status" id="syncStatus">
+            <span class="sync-dot" id="syncDot"></span>
+            <span class="sync-text" id="syncText">未连接</span>
+            <button class="mini-btn sync-test-btn" onclick="testConnection()">测试连接</button>
+          </div>
           <div class="nb-toolbar">
             <input type="text" id="nbFilter" placeholder="筛选笔记本..." oninput="renderNotebook()">
             <button class="mini-btn" onclick="exportNotebook()">导出</button>
@@ -299,10 +314,23 @@ function supabaseEnabled() { return typeof SUPABASE_CONFIG !== 'undefined' && SU
 function sbHeaders() {
   return { 'apikey': SUPABASE_CONFIG.anonKey, 'Authorization': 'Bearer ' + SUPABASE_CONFIG.anonKey, 'Content-Type': 'application/json' };
 }
+function setSync(state, msg) {
+  const dot = document.getElementById('syncDot');
+  const txt = document.getElementById('syncText');
+  if (!dot || !txt) return;
+  dot.className = 'sync-dot ' + (state === 'ok' ? 'ok' : state === 'fail' ? 'fail' : state === 'syncing' ? 'syncing' : '');
+  txt.className = 'sync-text ' + (state === 'ok' ? 'ok' : state === 'fail' ? 'fail' : '');
+  txt.textContent = msg || '';
+  txt.title = msg || '';
+}
 async function cloudRead() {
   const url = SUPABASE_CONFIG.url + '/rest/v1/notebook_store?id=eq.default&select=data';
   const res = await fetch(url, { headers: sbHeaders() });
-  if (!res.ok) throw new Error('cloudRead ' + res.status);
+  if (!res.ok) {
+    let detail = '';
+    try { detail = await res.text(); } catch(e) {}
+    throw new Error('读取失败 ' + res.status + ' ' + (detail || res.statusText));
+  }
   const arr = await res.json();
   return (arr && arr.length) ? (arr[0].data || null) : null;
 }
@@ -313,7 +341,11 @@ async function cloudWrite(payload) {
     headers: Object.assign({}, sbHeaders(), { 'Prefer': 'resolution=merge-duplicates,return=minimal' }),
     body: JSON.stringify([{ id: 'default', data: payload }])
   });
-  if (!res.ok) throw new Error('cloudWrite ' + res.status);
+  if (!res.ok) {
+    let detail = '';
+    try { detail = await res.text(); } catch(e) {}
+    throw new Error('写入失败 ' + res.status + ' ' + (detail || res.statusText));
+  }
 }
 function mergeNotebooks(a, b) {
   const deleted = new Set([].concat(a.deletedIds || [], b.deletedIds || []));
@@ -327,11 +359,19 @@ function mergeNotebooks(a, b) {
 }
 async function syncNow() {
   persistNotebook();
-  if (!supabaseEnabled()) return;
-  try { await cloudWrite(notebook); } catch(e) { console.warn('云同步失败', e); }
+  if (!supabaseEnabled()) { setSync('fail', '未配置 Supabase'); return; }
+  setSync('syncing', '同步中…');
+  try {
+    await cloudWrite(notebook);
+    setSync('ok', '已同步 ' + new Date().toLocaleTimeString());
+  } catch(e) {
+    console.warn('云同步失败', e);
+    setSync('fail', '同步失败：' + e.message);
+  }
 }
 async function initSync() {
-  if (!supabaseEnabled()) { renderNotebook(); updateProgress(); return; }
+  if (!supabaseEnabled()) { setSync('fail', '未配置 Supabase'); renderNotebook(); updateProgress(); return; }
+  setSync('syncing', '连接中…');
   try {
     const cloud = await cloudRead();
     if (cloud && cloud.items) {
@@ -341,8 +381,34 @@ async function initSync() {
     } else {
       await cloudWrite(notebook);
     }
-  } catch(e) { console.warn('云同步失败，使用本地数据', e); }
+    setSync('ok', '已连接 ' + new Date().toLocaleTimeString());
+  } catch(e) {
+    console.warn('云同步失败，使用本地数据', e);
+    setSync('fail', '连接失败：' + e.message);
+  }
   renderNotebook(); updateProgress();
+}
+async function testConnection() {
+  if (!supabaseEnabled()) { setSync('fail', '未配置 Supabase'); return; }
+  setSync('syncing', '测试连接中…');
+  try {
+    const t0 = Date.now();
+    const cloud = await cloudRead();
+    const ms = Date.now() - t0;
+    const n = (cloud && cloud.items) ? cloud.items.length : 0;
+    // 顺手把云端数据拉下来合并
+    if (cloud && cloud.items) {
+      notebook = mergeNotebooks(notebook, cloud);
+      persistNotebook();
+      renderNotebook(); updateProgress();
+    }
+    setSync('ok', '连接正常（' + ms + 'ms，云端 ' + n + ' 条）');
+    showSave('连接正常');
+  } catch(e) {
+    console.warn('连接测试失败', e);
+    setSync('fail', '连接失败：' + e.message);
+    alert('连接 Supabase 失败：\n\n' + e.message + '\n\n可能原因：\n1. 网络/防火墙拦截了 supabase.co\n2. Supabase 项目被暂停（需到 Dashboard 唤醒）\n3. anonKey 不正确');
+  }
 }
 
 // ===== 侧边栏 =====
@@ -864,6 +930,18 @@ document.addEventListener('keydown', function(e) {
 renderSidebar();
 updateProgress();
 initSync();
+// 定时从云端拉取，实现多端自动同步（每 90 秒）
+setInterval(async () => {
+  if (!supabaseEnabled()) return;
+  try {
+    const cloud = await cloudRead();
+    if (cloud && cloud.items) {
+      const before = notebook.items.length;
+      notebook = mergeNotebooks(notebook, cloud);
+      if (notebook.items.length !== before) { persistNotebook(); renderNotebook(); updateProgress(); }
+    }
+  } catch(e) { /* 静默，不打扰用户 */ }
+}, 90000);
 console.log('📓 教材 + 笔记本模式已加载');
 </script>
 </body>
