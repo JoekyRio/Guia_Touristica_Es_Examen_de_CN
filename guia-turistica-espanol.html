@@ -146,6 +146,9 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 #selPopup { position: fixed; z-index: 500; background: #2c3e50; border-radius: 8px; padding: 4px; box-shadow: 0 6px 20px rgba(0,0,0,0.28); display: none; }
 #selPopup .popup-btn { display: inline-flex; align-items: center; gap: 3px; border: none; background: none; color: #fff; font-size: 0.78rem; font-weight: 600; padding: 6px 8px; cursor: pointer; border-radius: 5px; transition: var(--transition); }
 #selPopup .popup-btn:hover { background: rgba(255,255,255,0.16); }
+/* 手机：固定在屏幕底部，避开浏览器自带的「复制/全选」菜单（它总出现在选区上方） */
+#selPopup.dock { left: 12px !important; top: auto !important; bottom: calc(16px + env(safe-area-inset-bottom)); max-width: calc(100% - 96px); padding: 6px; border-radius: 12px; }
+#selPopup.dock .popup-btn { font-size: 0.9rem; padding: 10px 12px; }
 
 /* ===== MODAL ===== */
 .modal-overlay { position: fixed; inset: 0; z-index: 600; background: rgba(0,0,0,0.4); display: none; align-items: center; justify-content: center; padding: 16px; }
@@ -292,7 +295,7 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 <button class="fab-nb" id="fabNb" onclick="toggleNotebook()">📓</button>
 
 <!-- selection popup -->
-<div id="selPopup">
+<div id="selPopup" onpointerdown="popupPressedAt = Date.now()">
   <button class="popup-btn" onclick="addVocab()" onmousedown="event.preventDefault()">📖 词汇</button>
   <button class="popup-btn" onclick="addPhrase()" onmousedown="event.preventDefault()">🔗 短语</button>
   <button class="popup-btn" onclick="addGrammar()" onmousedown="event.preventDefault()">📐 语法</button>
@@ -559,29 +562,31 @@ function highlightSidebar(type, ...args) {
 }
 
 // ===== 选中文本 → 弹出选项 =====
-document.addEventListener('mouseup', handleSelection);
-document.addEventListener('touchend', handleSelection);
+// mouseup/touchend 之外再监听 selectionchange：手机上拖动选区把手不会触发 touchend
+let selTimer = null, popupPressedAt = 0;
+function scheduleSelectionCheck(delay) { clearTimeout(selTimer); selTimer = setTimeout(checkSelection, delay); }
+document.addEventListener('mouseup', () => scheduleSelectionCheck(15));
+document.addEventListener('touchend', () => scheduleSelectionCheck(60));
+document.addEventListener('selectionchange', () => scheduleSelectionCheck(250));
 
-function handleSelection(e) {
-  setTimeout(() => {
-    if (e.target && e.target.id === 'selPopup' || (e.target && e.target.closest && e.target.closest('#selPopup'))) return;
-    if (e.target && e.target.closest && e.target.closest('#modalOverlay')) return;
-    const sel = window.getSelection();
-    if (!sel || sel.isCollapsed) { hidePopup(); return; }
-    const text = sel.toString().replace(/\s+/g, ' ').trim();
-    if (!text || text.length > 120) { hidePopup(); return; }
-    const anchor = sel.anchorNode;
-    const container = document.getElementById('textBlock');
-    if (!container.contains(anchor)) { hidePopup(); return; }
+function checkSelection() {
+  // 正在点弹窗按钮（手机上点按钮可能让选区消失）或已打开对话框时，不动弹窗
+  if (Date.now() - popupPressedAt < 700) return;
+  if (document.getElementById('modalOverlay').classList.contains('show')) { hidePopup(); return; }
+  const sel = window.getSelection();
+  if (!sel || sel.isCollapsed || !sel.rangeCount) { hidePopup(); return; }
+  const text = sel.toString().replace(/\s+/g, ' ').trim();
+  if (!text || text.length > 120) { hidePopup(); return; }
+  const anchor = sel.anchorNode;
+  const container = document.getElementById('textBlock');
+  if (!container.contains(anchor)) { hidePopup(); return; }
 
-    const blockEl = anchor.parentElement ? anchor.parentElement.closest('.paragraph, .qa-q, .qa-a') : null;
-    const esEl = blockEl ? blockEl.querySelector('.es') : null;
-    const context = esEl ? esEl.textContent.trim() : '';
+  const blockEl = anchor.parentElement ? anchor.parentElement.closest('.paragraph, .qa-q, .qa-a') : null;
+  const esEl = blockEl ? blockEl.querySelector('.es') : null;
+  const context = esEl ? esEl.textContent.trim() : '';
 
-    currentSelection = { text, context, source: getSourceFromAnchor(anchor) };
-    const rect = sel.getRangeAt(0).getBoundingClientRect();
-    showPopup(rect);
-  }, 15);
+  currentSelection = { text, context, source: getSourceFromAnchor(anchor) };
+  showPopup(sel.getRangeAt(0).getBoundingClientRect());
 }
 
 function getSourceFromAnchor(anchor) {
@@ -597,14 +602,19 @@ function getSourceFromAnchor(anchor) {
   return null;
 }
 
+const isTouchUI = () => window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
 function showPopup(rect) {
   const popup = document.getElementById('selPopup');
   popup.style.display = 'block';
+  const dock = isTouchUI();
+  popup.classList.toggle('dock', dock);
+  if (dock) return;   // 手机：固定在底部，见 CSS #selPopup.dock
   const pw = popup.offsetWidth || 200;
   const ph = popup.offsetHeight || 36;
+  // 电脑：放在选区下方（Edge 等浏览器的划词小工具栏在上方），下方放不下再放上方
   let left = rect.left + rect.width / 2 - pw / 2;
-  let top = rect.top - ph - 8;
-  if (top < 60) top = rect.bottom + 8;
+  let top = rect.bottom + 10;
+  if (top + ph > window.innerHeight - 8) top = rect.top - ph - 10;
   left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
   top = Math.max(60, Math.min(top, window.innerHeight - ph - 8));
   popup.style.left = left + 'px';
