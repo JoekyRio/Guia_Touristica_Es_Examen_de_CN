@@ -41,7 +41,7 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 /* ===== SIDEBAR ===== */
 .sidebar { width: 270px; min-width: 270px; background: var(--bg2); border-right: 1px solid var(--rule); display: flex; flex-direction: column; height: 100%; overflow: hidden; }
 .sidebar-tabs { display: flex; border-bottom: 1px solid var(--rule); }
-.sidebar-tab { flex: 1; padding: 12px 8px; text-align: center; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--muted); transition: var(--transition); border-bottom: 2px solid transparent; }
+.sidebar-tab { flex: 1; padding: 12px 4px; text-align: center; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--muted); transition: var(--transition); border-bottom: 2px solid transparent; }
 .sidebar-tab:hover { color: var(--ink); }
 .sidebar-tab.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--accent-bg); }
 .sidebar-content { flex: 1; overflow-y: auto; padding: 8px 0; }
@@ -52,6 +52,15 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 .sidebar-item.active { background: var(--accent-bg); color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
 .sidebar-item .idx { font-size: 0.7rem; color: var(--muted); min-width: 20px; text-align: center; }
 .sidebar-category { padding: 8px 16px 4px; font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.sidebar-category.clickable { cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+.sidebar-category.clickable:hover { color: var(--accent); }
+.sidebar-section { margin: 10px 10px 2px; padding: 7px 10px; border-radius: 6px; background: var(--accent-bg); color: var(--accent); font-size: 0.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.sidebar-section span { font-size: 0.68rem; font-weight: 600; color: var(--muted); }
+.sidebar-section.old { background: var(--bg); color: var(--muted); }
+.sidebar-item.old { color: var(--muted); font-size: 0.76rem; padding-top: 6px; padding-bottom: 6px; }
+.sidebar-item.dir { font-weight: 700; color: var(--accent); }
+.badge { display: inline-block; font-size: 0.6rem; font-weight: 700; padding: 0 6px; border-radius: 8px; background: var(--green); color: #fff; margin-left: 4px; vertical-align: middle; }
+.badge.gray { background: #b9a898; }
 
 /* ===== MAIN ===== */
 .main-content { flex: 1; display: flex; flex-direction: column; height: 100%; overflow: hidden; position: relative; }
@@ -80,6 +89,39 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 .qa-block.expanded .qa-a { display: block; }
 .qa-block .qa-toggle { padding: 6px 18px; font-size: 0.75rem; color: var(--accent2); cursor: pointer; text-align: center; border-top: 1px solid var(--rule); background: var(--bg); font-weight: 600; }
 .qa-block.has-annotation { border-left: 4px solid var(--accent2); }
+/* 讲解信息框 / 点位标签 */
+.guion-info { background: var(--bg2); border: 1px solid var(--rule); border-left: 4px solid var(--green); border-radius: var(--radius); padding: 12px 16px; margin-bottom: 12px; font-size: 0.82rem; line-height: 1.7; }
+.guion-info.warn { border-left-color: var(--accent2); }
+.guion-info h4 { font-size: 0.8rem; color: var(--green); margin-bottom: 4px; }
+.guion-info.warn h4 { color: var(--accent2); }
+.guion-info p + h4 { margin-top: 8px; }
+.guion-info a { color: var(--blue); cursor: pointer; text-decoration: underline; }
+.point-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.point-chip { border: 1px solid var(--rule); background: var(--bg); border-radius: 14px; padding: 2px 10px; font-size: 0.74rem; cursor: pointer; font-family: inherit; color: var(--ink); }
+.point-chip:hover { border-color: var(--green); color: var(--green); }
+.point-chip b { color: var(--green); margin-right: 3px; }
+.para-point { display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--green); background: #eaf7ef; border-radius: 10px; padding: 1px 9px; margin: 0 6px 6px 0; }
+.para-point .es-name { font-weight: 500; color: var(--muted); }
+.paragraph.has-annotation .para-point:first-child { margin-left: 16px; }
+/* 考试概览 / 问答目录 */
+.overview h3 { font-size: 0.95rem; color: var(--accent); margin: 18px 0 8px; }
+.overview h3:first-child { margin-top: 0; }
+.ov-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: var(--bg2); border-radius: var(--radius); overflow: hidden; }
+.ov-table th, .ov-table td { border: 1px solid var(--rule); padding: 7px 10px; text-align: left; vertical-align: top; }
+.ov-table th { background: var(--accent-bg); color: var(--accent); font-weight: 700; white-space: nowrap; }
+.ov-card { background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 8px; font-size: 0.82rem; }
+.ov-card .t { font-weight: 700; color: var(--ink); cursor: pointer; }
+.ov-card .t:hover { color: var(--accent); }
+.ov-card .t .es-name { font-weight: 500; color: var(--muted); font-size: 0.76rem; }
+.ov-list { padding-left: 20px; font-size: 0.82rem; }
+.ov-list li { margin-bottom: 3px; }
+.dir-jump { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.dir-q { display: flex; gap: 8px; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 0.84rem; }
+.dir-q:hover { background: var(--accent-bg); color: var(--accent); }
+.dir-q .n { color: var(--muted); font-size: 0.74rem; min-width: 26px; text-align: right; padding-top: 2px; }
+.qa-nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.interp-src { font-size: 1rem; line-height: 1.9; color: var(--ink); font-weight: 600; }
+.interp-tip { font-size: 0.76rem; color: var(--muted); margin-bottom: 10px; }
 
 /* ===== NOTEBOOK PANEL ===== */
 .notebook-panel { width: 380px; min-width: 380px; max-width: 380px; margin: 18px 22px 18px 0; background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--radius); display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-shadow: var(--shadow); }
@@ -229,7 +271,7 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 
 <header>
   <button class="mobile-toggle" onclick="toggleSidebar()" title="Menú">☰</button>
-  <h1>🇪🇸 Guía Turística <span>— Preparación examen oral</span></h1>
+  <h1 onclick="showHome()" style="cursor:pointer" title="考试概览">🇪🇸 Guía Turística <span>— Preparación examen oral 2026</span></h1>
   <div class="header-actions">
     <input type="text" id="searchInput" placeholder="🔍 搜索教材..." oninput="handleSearch()">
   </div>
@@ -240,6 +282,7 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
     <div class="sidebar-tabs">
       <button class="sidebar-tab active" onclick="switchTab('guiones')" id="tab-guiones">🎯 Guiones</button>
       <button class="sidebar-tab" onclick="switchTab('preguntas')" id="tab-preguntas">❓ Preguntas</button>
+      <button class="sidebar-tab" onclick="switchTab('interp')" id="tab-interp">🗣️ 口译</button>
     </div>
     <div class="sidebar-content" id="sidebarContent"></div>
   </aside>
@@ -310,6 +353,7 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 <script src="assets/grammar_data.js"></script>
 <script src="assets/guiones_data.js"></script>
 <script src="assets/preguntas_data.js"></script>
+<script src="assets/interpretacion_data.js"></script>
 <script>
 // ===== 常量与状态 =====
 const NB_KEY = 'guia_es_notebook_v2';
@@ -449,20 +493,67 @@ async function testConnection() {
 }
 
 // ===== 侧边栏 =====
+// ===== 数据工具 =====
+const WPM = 120;   // 估算讲解时长：每分钟约 120 个西语单词（考试语速）
+function allGuionSources() { return [].concat(guionesData.topics || [], guionesData.scenic_spots); }
+function findSpot(id) { return allGuionSources().find(s => s.id === id); }
+function isTopic(id) { return (guionesData.topics || []).some(t => t.id === id); }
+function wordCount(ver) { return ver.paragraphs.map(p => p.es).join(' ').split(/\s+/).filter(Boolean).length; }
+function catShortName(cat) { return cat.name_cn.replace('及参考答案', ''); }
+// 先 2026 版，再旧版；返回 [{ver, vIdx}]（vIdx 保持原下标，笔记的「原文」跳转不受影响）
+function orderedVersions(spot) {
+  return spot.versions.map((ver, vIdx) => ({ ver, vIdx })).sort((a, b) => (b.ver.year || 0) - (a.ver.year || 0));
+}
+function guionItemHtml(spot, vIdx, idxLabel, label, cls) {
+  return `<div class="sidebar-item${cls ? ' ' + cls : ''}" data-spot="${spot.id}" data-version="${vIdx}" onclick="loadGuion('${spot.id}', ${vIdx})">
+    <span class="idx">${idxLabel}</span><span>${label}</span></div>`;
+}
+let collapsedCats = new Set();
+function toggleCat(idx) { collapsedCats.has(idx) ? collapsedCats.delete(idx) : collapsedCats.add(idx); renderSidebar(); }
+
 function renderSidebar() {
   const container = document.getElementById('sidebarContent');
   let html = '';
   if (currentTab === 'guiones') {
-    guionesData.scenic_spots.forEach((spot, idx) => {
-      html += `<div class="sidebar-category">${spot.name_cn}</div>`;
-      spot.versions.forEach((ver, vIdx) => {
-        html += `<div class="sidebar-item" data-spot="${spot.id}" data-version="${vIdx}" onclick="loadGuion('${spot.id}', ${vIdx})">
-          <span class="idx">${idx+1}.${vIdx+1}</span><span>${spot.name_es} — ${ver.version}</span></div>`;
+    html += `<div class="sidebar-item dir" onclick="showExamOverview(); closeSidebarIfMobile()"><span class="idx">🏠</span><span>2026 考试概览</span></div>`;
+    html += `<div class="sidebar-section">🎤 专题讲解 <span>2 分钟 · 三选一</span></div>`;
+    (guionesData.topics || []).forEach((t, i) => {
+      html += guionItemHtml(t, 0, 'T' + (i + 1), `${t.name_cn}<br><small style="color:var(--muted)">${t.name_es}</small>`);
+    });
+    html += `<div class="sidebar-section">🏞️ 景点讲解 <span>6 分钟 · 八选一</span></div>`;
+    const exam = guionesData.scenic_spots.filter(s => s.exam2026);
+    exam.forEach((spot, idx) => {
+      html += `<div class="sidebar-category">${idx + 1}. ${spot.name_cn}</div>`;
+      orderedVersions(spot).forEach(({ ver, vIdx }) => {
+        html += ver.year === 2026
+          ? guionItemHtml(spot, vIdx, `${idx + 1}`, `${spot.name_es} <span class="badge">2026</span>`)
+          : guionItemHtml(spot, vIdx, '', `${ver.version}（旧）`, 'old');
+      });
+    });
+    const old = guionesData.scenic_spots.filter(s => !s.exam2026);
+    if (old.length) {
+      html += `<div class="sidebar-section old">🗂️ 往年景点 <span>2026 大纲已删除</span></div>`;
+      old.forEach(spot => {
+        html += `<div class="sidebar-category">${spot.name_cn}</div>`;
+        spot.versions.forEach((ver, vIdx) => { html += guionItemHtml(spot, vIdx, '', `${spot.name_es} — ${ver.version}`, 'old'); });
+      });
+    }
+  } else if (currentTab === 'interp') {
+    html += `<div class="sidebar-item dir" onclick="showInterpHome(); closeSidebarIfMobile()"><span class="idx">🗣️</span><span>口译练习说明</span></div>`;
+    interpretacionData.sections.forEach((sec, d) => {
+      html += `<div class="sidebar-section">${sec.name_cn} <span>${sec.items.length} 题</span></div>`;
+      sec.items.forEach((it, i) => {
+        const src = sec.id === 'zh2es' ? it.zh : it.es;
+        html += `<div class="sidebar-item" data-dir="${d}" data-i="${i}" onclick="loadInterp(${d}, ${i})">
+          <span class="idx">${i + 1}</span><span><small style="color:var(--muted)">${it.theme}</small><br>${escapeHtml(truncate(src, 34))}</span></div>`;
       });
     });
   } else {
+    html += `<div class="sidebar-item dir" onclick="showPreguntasDirectory(); closeSidebarIfMobile()"><span class="idx">📑</span><span>问答目录（按考试环节）</span></div>`;
     preguntasData.categories.forEach((cat, idx) => {
-      html += `<div class="sidebar-category">${cat.name_cn} (${cat.count})</div>`;
+      const closed = collapsedCats.has(idx);
+      html += `<div class="sidebar-category clickable" onclick="toggleCat(${idx})"><span>${closed ? '▸' : '▾'} ${catShortName(cat)}</span><span>${cat.questions.length}</span></div>`;
+      if (closed) return;
       cat.questions.forEach((q, qIdx) => {
         html += `<div class="sidebar-item" data-cat="${idx}" data-q="${qIdx}" onclick="loadPregunta(${idx}, ${qIdx})">
           <span class="idx">${q.id}</span><span>${q.q_es.substring(0, 46)}...</span></div>`;
@@ -470,6 +561,7 @@ function renderSidebar() {
     });
   }
   container.innerHTML = html;
+  if (currentView) highlightSidebar(currentView.mode, ...viewArgs(currentView));
 }
 
 function switchTab(tab) {
@@ -477,12 +569,80 @@ function switchTab(tab) {
   document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
   currentView = null;
-  renderSidebar();
-  document.getElementById('contentTitle').textContent = '开始学习';
-  document.getElementById('contentSubtitle').textContent = '在左侧选择一篇导游词或问答开始';
-  document.getElementById('textBlock').innerHTML = '<div class="nb-empty"><div class="icon">📋</div><p>从左侧选择一篇内容开始学习</p></div>';
   document.getElementById('searchInput').value = '';
+  renderSidebar();
+  if (tab === 'guiones') showExamOverview(); else if (tab === 'interp') showInterpHome(); else showPreguntasDirectory();
+}
+function showHome() { switchTab('guiones'); }
+
+function setPage(title, subtitle, html) {
+  currentView = null;
+  document.getElementById('contentTitle').textContent = title;
+  document.getElementById('contentSubtitle').textContent = subtitle;
+  document.getElementById('textBlock').innerHTML = html;
+  document.getElementById('textScroll').scrollTop = 0;
+  document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
   renderNotebook();
+}
+
+// ===== 2026 考试概览 =====
+function showExamOverview() {
+  currentTab = 'guiones';
+  const topics = (guionesData.topics || []).map(t =>
+    `<div class="ov-card"><div class="t" onclick="loadGuion('${t.id}', 0)">🎤 ${t.name_cn} <span class="es-name">${t.name_es}</span></div>
+     <div style="color:var(--muted);margin-top:3px">外语要求：${t.lang_req_cn}</div></div>`).join('');
+  const spots = guionesData.scenic_spots.filter(s => s.exam2026).map((s, i) => {
+    const v = s.versions.findIndex(x => x.year === 2026);
+    return `<div class="ov-card"><div class="t" onclick="loadGuion('${s.id}', ${v})">${i + 1}. ${s.name_cn} <span class="es-name">${s.name_es}</span></div>
+      <div style="color:var(--muted);margin-top:3px">${(s.points_2026 || []).map(p => p.cn).join('、')}</div></div>`;
+  }).join('');
+  setPage('2026 外语类现场考试', '共 49 分钟 = 准备 3 分钟 + 答题 23 分钟 + 系统回放检查 23 分钟', `<div class="overview">
+    <h3>考试环节（答题 23 分钟）</h3>
+    <table class="ov-table">
+      <tr><th>环节</th><th>时间</th><th>内容 / 本网站对应位置</th></tr>
+      <tr><td>专题讲解</td><td>2 分钟</td><td>3 个专题选 1，左侧「🎤 专题讲解」</td></tr>
+      <tr><td>景点讲解</td><td>6 分钟</td><td>8 个景点选 1，左侧「🏞️ 景点讲解」的 2026 版</td></tr>
+      <tr><td>导游规范问答<br>应变能力问答<br>综合知识问答</td><td rowspan="2">其余约 15 分钟</td><td>从题库中抽题，见 <a onclick="switchTab('preguntas')" style="color:var(--blue);cursor:pointer;text-decoration:underline">❓ 问答目录</a></td></tr>
+      <tr><td>口译</td><td>中译外、外译中，见 <a onclick="switchTab('interp')" style="color:var(--blue);cursor:pointer;text-decoration:underline">🗣️ 口译练习</a>（${interpretacionData.sections.reduce((n, x) => n + x.items.length, 0)} 题）</td></tr>
+    </table>
+    <p style="font-size:0.74rem;color:var(--muted);margin-top:6px">专题与景点讲解共有 3 分钟准备时间。「其余约 15 分钟」是按 23 − 2 − 6 推算的，大纲没有细分。</p>
+    <h3>🎤 专题讲解范围（3 个）</h3>${topics}
+    <h3>🏞️ 景点讲解范围（8 个）及讲解点位</h3>${spots}
+    <h3>考试要素（八大方面）</h3>
+    <ol class="ov-list">
+      <li><b>语言表达</b>：准确、有逻辑、流畅、生动，有感染力和说服力；肢体语言得体，语音面貌好</li>
+      <li><b>礼仪礼貌</b>：职业形象、仪容仪表和礼仪规范</li>
+      <li><b>专题讲解</b>：正确、科学、有条理；内容充实，逻辑清晰，层次分明，重点突出</li>
+      <li><b>景点讲解</b>：符合服务规范；景区概况和景点讲解正确、有条理、内容充实、现场感强</li>
+      <li><b>导游规范知识</b>：服务规范、工作标准、服务流程、文明旅游引导</li>
+      <li><b>应变能力知识</b>：处理常见问题和突发事件的能力与技巧</li>
+      <li><b>综合知识</b>：四川历史、传统文化、民俗、非遗、红色文化、代表景点，以及时政、经济、社会发展</li>
+      <li><b>口译</b>：中文与外语之间的口译能力</li>
+    </ol></div>`);
+}
+
+// ===== 问答目录 =====
+const CAT_DESC = [
+  '考查导游服务规范、工作标准、服务流程、文明旅游引导等方面的掌握程度和应用能力。',
+  '考查处理执业过程中各类常见问题和突发事件的能力、技巧。',
+  '考查四川历史沿革、传统文化、民俗生活、非遗、红色文化、代表景点及时政、经济、社会发展等综合知识。'
+];
+function showPreguntasDirectory(focusCat) {
+  currentTab = 'preguntas';
+  const cats = preguntasData.categories;
+  const total = cats.reduce((n, c) => n + c.questions.length, 0);
+  let html = `<div class="overview"><div class="dir-jump">` +
+    cats.map((c, i) => `<button class="chip" onclick="document.getElementById('dircat-${i}').scrollIntoView({behavior:'smooth'})">${catShortName(c)}<span class="n">${c.questions.length}</span></button>`).join('') +
+    `</div>`;
+  cats.forEach((c, i) => {
+    html += `<h3 id="dircat-${i}">${catShortName(c)} <span style="font-size:0.75rem;color:var(--muted);font-weight:500">· ${c.questions.length} 题 · ${c.name_es}</span></h3>
+      <p style="font-size:0.76rem;color:var(--muted);margin:-4px 0 6px">${CAT_DESC[i] || ''}</p>`;
+    c.questions.forEach((q, qi) => {
+      html += `<div class="dir-q" onclick="loadPregunta(${i}, ${qi})"><span class="n">${q.id}</span><span>${escapeHtml(q.q_cn)}</span></div>`;
+    });
+  });
+  setPage('问答目录', `导游规范 · 应变能力 · 综合知识，共 ${total} 题`, html + '</div>');
+  if (focusCat != null) setTimeout(() => document.getElementById('dircat-' + focusCat)?.scrollIntoView(), 50);
 }
 
 // ===== 加载教材 =====
@@ -493,27 +653,35 @@ function hasCapture(text) {
 
 function loadGuion(spotId, vIdx, highlightPara) {
   currentTab = 'guiones';
-  const spot = guionesData.scenic_spots.find(s => s.id === spotId);
+  const spot = findSpot(spotId);
   if (!spot) return;
   const ver = spot.versions[vIdx];
+  if (!ver) return;
+  if (currentTab !== 'guiones') { document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t.id === 'tab-guiones')); currentTab = 'guiones'; renderSidebar(); }
   currentView = { mode: 'guion', spotId, versionIdx: vIdx };
 
-  document.getElementById('contentTitle').textContent = spot.name_es;
-  document.getElementById('contentSubtitle').textContent = `${ver.version} · ${ver.paragraphs.length} 段`;
+  const words = wordCount(ver);
+  document.getElementById('contentTitle').textContent = isTopic(spotId) ? `${spot.name_cn} · ${spot.name_es}` : spot.name_es;
+  document.getElementById('contentSubtitle').textContent = `${isTopic(spotId) ? '专题讲解' : spot.name_cn} · ${ver.version} · ${ver.paragraphs.length} 段 · 约 ${words} 词 ≈ ${(words / WPM).toFixed(1)} 分钟`;
 
-  let html = '';
+  let html = guionInfoHtml(spot, ver);
   ver.paragraphs.forEach((p, i) => {
     const mark = hasCapture(p.es) ? ' has-annotation' : '';
+    const pts = (p.points || []).map(k => spot.points_2026 && spot.points_2026[k]
+      ? `<span class="para-point">📍 ${spot.points_2026[k].cn} <span class="es-name">${spot.points_2026[k].es}</span></span>` : '').join('');
     html += `<div class="paragraph${mark}" data-idx="${i}">
       <span class="para-idx">§${i+1}</span>
+      ${pts ? `<div>${pts}</div>` : ''}
       <span class="es">${p.es}</span>
       <span class="cn-original">${p.cn}</span>
     </div>`;
   });
   document.getElementById('textBlock').innerHTML = html;
+  if (highlightPara == null) document.getElementById('textScroll').scrollTop = 0;
   highlightSidebar('guion', spotId, vIdx);
   renderNotebook();
   closeNotebookIfMobile();
+  closeSidebarIfMobile();
 
   if (highlightPara != null) {
     setTimeout(() => {
@@ -523,20 +691,113 @@ function loadGuion(spotId, vIdx, highlightPara) {
   }
 }
 
+// ===== 口译练习 =====
+function activateTab(tab) {
+  if (currentTab === tab) return;
+  document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t.id === 'tab-' + tab));
+  currentTab = tab; renderSidebar();
+}
+function showInterpHome() {
+  activateTab('interp');
+  const secs = interpretacionData.sections;
+  let html = `<div class="overview"><div class="guion-info"><h4>怎么练</h4>
+    <p>1. 先只看原文，自己大声说出译文（可以用手机录音）；<br>2. 再点「查看参考译文」对照，参考译文只是一种说法，意思准确、表达自然就好；<br>3. 用「🎲 随机一题」模拟考场抽题；遇到不会的词，可以直接选中加入笔记本。</p></div>`;
+  secs.forEach((sec, d) => {
+    html += `<h3>${sec.name_cn} <span style="font-size:0.75rem;color:var(--muted);font-weight:500">· ${sec.items.length} 题 · ${sec.name_es}</span></h3>`;
+    sec.items.forEach((it, i) => {
+      html += `<div class="dir-q" onclick="loadInterp(${d}, ${i})"><span class="n">${i + 1}</span><span><small style="color:var(--muted)">【${it.theme}】</small>${escapeHtml(sec.id === 'zh2es' ? it.zh : it.es)}</span></div>`;
+    });
+  });
+  setPage('口译练习', `中译外 ${secs[0].items.length} 题 · 外译中 ${secs[1].items.length} 题`, html + '</div>');
+}
+function loadInterp(d, i) {
+  const sec = interpretacionData.sections[d];
+  if (!sec || !sec.items[i]) return;
+  activateTab('interp');
+  const it = sec.items[i];
+  currentView = { mode: 'interp', dirIdx: d, idx: i };
+  const zh2es = sec.id === 'zh2es';
+  document.getElementById('contentTitle').textContent = `口译 · ${sec.name_cn}`;
+  document.getElementById('contentSubtitle').textContent = `第 ${i + 1} / ${sec.items.length} 题 · ${it.theme}`;
+  const prev = i > 0 ? `loadInterp(${d}, ${i - 1})` : '';
+  const next = i < sec.items.length - 1 ? `loadInterp(${d}, ${i + 1})` : '';
+  const src = zh2es ? `<span class="interp-src">${escapeHtml(it.zh)}</span>` : `<span class="es interp-src">${escapeHtml(it.es)}</span>`;
+  const ans = zh2es ? `<span class="es">${escapeHtml(it.es)}</span>` : `<span>${escapeHtml(it.zh)}</span>`;
+  const mark = hasCapture(it.es) ? ' has-annotation' : '';
+  document.getElementById('textScroll').scrollTop = 0;
+  document.getElementById('textBlock').innerHTML =
+    `<div class="qa-nav">
+      <button class="mini-btn" onclick="showInterpHome()">🗣️ 全部题目</button>
+      <button class="mini-btn" ${prev ? `onclick="${prev}"` : 'disabled'}>‹ 上一题</button>
+      <button class="mini-btn" ${next ? `onclick="${next}"` : 'disabled'}>下一题 ›</button>
+      <button class="mini-btn" onclick="randomInterp(${d})">🎲 随机一题</button>
+    </div>
+    <div class="interp-tip">${zh2es ? '请把下面的中文口译成西班牙语：' : '请把下面的西班牙语口译成中文：'}</div>
+    <div class="qa-block${mark}" data-idx="${i}">
+      <div class="qa-q" style="background:var(--bg2);color:var(--ink)">${src}</div>
+      <div class="qa-a"><b style="color:var(--green);font-size:0.75rem">参考译文</b><br>${ans}</div>
+      <div class="qa-toggle" onclick="toggleQA(this.parentElement, '参考译文')">▼ 查看参考译文</div>
+    </div>`;
+  highlightSidebar('interp', d, i);
+  renderNotebook();
+  closeNotebookIfMobile();
+  closeSidebarIfMobile();
+}
+function randomInterp(d) {
+  const n = interpretacionData.sections[d].items.length;
+  let i = Math.floor(Math.random() * n);
+  if (currentView && currentView.mode === 'interp' && n > 1 && i === currentView.idx) i = (i + 1) % n;
+  loadInterp(d, i);
+}
+
+// 范文顶部的说明框：专题要点 / 2026 考试点位 / 旧版提示
+function guionInfoHtml(spot, ver) {
+  if (isTopic(spot.id)) {
+    return `<div class="guion-info"><h4>讲解要点</h4><p>${spot.key_points_cn}</p><h4>外语要求</h4><p>${spot.lang_req_cn}</p></div>`;
+  }
+  if (ver.year === 2026) {
+    const chips = (spot.points_2026 || []).map((pt, k) => {
+      const pi = ver.paragraphs.findIndex(p => (p.points || []).includes(k));
+      return `<button class="point-chip" onclick="scrollToPara(${pi})"><b>${k + 1}</b>${pt.cn}</button>`;
+    }).join('');
+    return `<div class="guion-info"><h4>✅ 2026 大纲讲解点位（${(spot.points_2026 || []).length} 个，点击跳到对应段落）</h4><div class="point-chips">${chips}</div></div>`;
+  }
+  if (spot.exam2026) {
+    const v = spot.versions.findIndex(x => x.year === 2026);
+    return `<div class="guion-info warn"><h4>这是 2025 年的旧范文</h4><p>它没有覆盖 2026 大纲的全部讲解点位。考试请以 <a onclick="loadGuion('${spot.id}', ${v})">2026 大纲版</a> 为准，旧范文可作为补充表达参考。</p></div>`;
+  }
+  return `<div class="guion-info warn"><h4>该景点已不在 2026 考试大纲中</h4><p>保留在这里只是为了方便查看以前的笔记。</p></div>`;
+}
+function scrollToPara(i) {
+  const el = document.querySelector(`.paragraph[data-idx="${i}"]`);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+}
+
 function loadPregunta(catIdx, qIdx) {
   currentTab = 'preguntas';
   const cat = preguntasData.categories[catIdx];
   if (!cat) return;
   const q = cat.questions[qIdx];
   if (!q) return;
+  if (currentTab !== 'preguntas') { document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t.id === 'tab-preguntas')); currentTab = 'preguntas'; renderSidebar(); }
   currentView = { mode: 'pregunta', catIdx, qIdx };
 
   document.getElementById('contentTitle').textContent = `Pregunta #${q.id}`;
-  document.getElementById('contentSubtitle').textContent = cat.name_es;
+  document.getElementById('contentSubtitle').textContent = `${catShortName(cat)} · ${cat.name_es} · 第 ${qIdx + 1} / ${cat.questions.length} 题`;
 
   const mark = hasCapture(q.q_es + ' ' + q.a_es) ? ' has-annotation' : '';
+  const prev = qIdx > 0 ? `loadPregunta(${catIdx}, ${qIdx - 1})` : (catIdx > 0 ? `loadPregunta(${catIdx - 1}, ${preguntasData.categories[catIdx - 1].questions.length - 1})` : '');
+  const next = qIdx < cat.questions.length - 1 ? `loadPregunta(${catIdx}, ${qIdx + 1})` : (catIdx < preguntasData.categories.length - 1 ? `loadPregunta(${catIdx + 1}, 0)` : '');
+  document.getElementById('textScroll').scrollTop = 0;
   document.getElementById('textBlock').innerHTML =
-    `<div class="qa-block${mark}" data-idx="${qIdx}">
+    `<div class="qa-nav">
+      <button class="mini-btn" onclick="showPreguntasDirectory(${catIdx})">📑 目录</button>
+      <button class="mini-btn" ${prev ? `onclick="${prev}"` : 'disabled'}>‹ 上一题</button>
+      <button class="mini-btn" ${next ? `onclick="${next}"` : 'disabled'}>下一题 ›</button>
+    </div>
+    <div class="qa-block${mark}" data-idx="${qIdx}">
       <div class="qa-q"><span class="qa-num">${q.id}</span><span class="es">${q.q_es}</span></div>
       <div class="qa-a"><span class="es">${q.a_es}</span></div>
       <div class="qa-toggle" onclick="toggleQA(this.parentElement)">▼ 查看答案</div>
@@ -544,18 +805,24 @@ function loadPregunta(catIdx, qIdx) {
   highlightSidebar('pregunta', catIdx, qIdx);
   renderNotebook();
   closeNotebookIfMobile();
+  closeSidebarIfMobile();
 }
 
-function toggleQA(block) {
+function toggleQA(block, label) {
   block.classList.toggle('expanded');
   const t = block.querySelector('.qa-toggle');
-  t.textContent = block.classList.contains('expanded') ? '▲ 隐藏答案' : '▼ 查看答案';
+  label = label || '答案';
+  t.textContent = block.classList.contains('expanded') ? '▲ 隐藏' + label : '▼ 查看' + label;
 }
 
+function viewArgs(v) {
+  return v.mode === 'guion' ? [v.spotId, v.versionIdx] : v.mode === 'interp' ? [v.dirIdx, v.idx] : [v.catIdx, v.qIdx];
+}
 function highlightSidebar(type, ...args) {
   document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
   const sel = type === 'guion'
     ? `[data-spot="${args[0]}"][data-version="${args[1]}"]`
+    : type === 'interp' ? `[data-dir="${args[0]}"][data-i="${args[1]}"]`
     : `[data-cat="${args[0]}"][data-q="${args[1]}"]`;
   const el = document.querySelector('.sidebar-item' + sel);
   if (el) el.classList.add('active');
@@ -596,6 +863,9 @@ function getSourceFromAnchor(anchor) {
     return { mode: 'guion', spotId: currentView.spotId, versionIdx: currentView.versionIdx, paraIdx: parseInt(para.dataset.idx) };
   }
   const qa = parent.closest('.qa-block');
+  if (qa && currentView && currentView.mode === 'interp') {
+    return { mode: 'interp', dirIdx: currentView.dirIdx, idx: currentView.idx };
+  }
   if (qa && currentView && currentView.mode === 'pregunta') {
     return { mode: 'pregunta', catIdx: currentView.catIdx, qIdx: parseInt(qa.dataset.idx) };
   }
@@ -842,6 +1112,7 @@ function itemInCurrentView(it) {
   const s = it.source, v = currentView;
   if (!s || !v || s.mode !== v.mode) return false;
   if (v.mode === 'guion') return s.spotId === v.spotId && s.versionIdx === v.versionIdx;
+  if (v.mode === 'interp') return s.dirIdx === v.dirIdx && s.idx === v.idx;
   return s.catIdx === v.catIdx && s.qIdx === v.qIdx;
 }
 function setNbScope(scope) { nbFilter.scope = scope; persistNbFilter(); renderNotebook(); }
@@ -942,12 +1213,14 @@ function jumpToSource(id) {
   const s = it.source;
   if (s.mode === 'guion') loadGuion(s.spotId, s.versionIdx, s.paraIdx);
   else if (s.mode === 'pregunta') { loadPregunta(s.catIdx, s.qIdx); }
+  else if (s.mode === 'interp') { loadInterp(s.dirIdx, s.idx); }
   closeNotebookIfMobile();
 }
 
 function refreshCurrentView() {
   if (currentView && currentView.mode === 'guion') loadGuion(currentView.spotId, currentView.versionIdx);
   else if (currentView && currentView.mode === 'pregunta') loadPregunta(currentView.catIdx, currentView.qIdx);
+  else if (currentView && currentView.mode === 'interp') loadInterp(currentView.dirIdx, currentView.idx);
 }
 
 // ===== 导入 / 导出 =====
@@ -987,11 +1260,20 @@ function handleSearch() {
   if (!query) { renderSidebar(); return; }
   let html = '';
   if (currentTab === 'guiones') {
-    guionesData.scenic_spots.forEach((spot, idx) => {
-      spot.versions.forEach((ver, vIdx) => {
+    allGuionSources().forEach(spot => {
+      orderedVersions(spot).forEach(({ ver, vIdx }) => {
         const all = ver.paragraphs.map(p => p.es + ' ' + p.cn).join(' ').toLowerCase();
-        if (all.includes(query) || spot.name_es.toLowerCase().includes(query) || spot.name_cn.includes(query)) {
-          html += `<div class="sidebar-item" data-spot="${spot.id}" data-version="${vIdx}" onclick="loadGuion('${spot.id}', ${vIdx})"><span class="idx">${idx+1}.${vIdx+1}</span><span>${spot.name_es} — ${ver.version}</span></div>`;
+        const pts = ver.year === 2026 ? (spot.points_2026 || []).map(p => p.cn + ' ' + p.es).join(' ').toLowerCase() : '';
+        if (all.includes(query) || pts.includes(query) || spot.name_es.toLowerCase().includes(query) || spot.name_cn.includes(query)) {
+          html += guionItemHtml(spot, vIdx, ver.year === 2026 ? '★' : '', `${spot.name_cn} — ${ver.version}`, ver.year === 2026 ? '' : 'old');
+        }
+      });
+    });
+  } else if (currentTab === 'interp') {
+    interpretacionData.sections.forEach((sec, d) => {
+      sec.items.forEach((it, i) => {
+        if ((it.zh + ' ' + it.es + ' ' + it.theme).toLowerCase().includes(query)) {
+          html += `<div class="sidebar-item" data-dir="${d}" data-i="${i}" onclick="loadInterp(${d}, ${i})"><span class="idx">${i + 1}</span><span><small style="color:var(--muted)">${sec.name_cn} · ${it.theme}</small><br>${escapeHtml(truncate(sec.id === 'zh2es' ? it.zh : it.es, 34))}</span></div>`;
         }
       });
     });
@@ -1038,6 +1320,7 @@ function toggleNotebook(force) {
   panel.classList.toggle('show', show);
   scrim.classList.toggle('show', show);
 }
+function closeSidebarIfMobile() { if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open'); }
 function closeNotebookIfMobile() { if (window.innerWidth <= 768) toggleNotebook(false); }
 // 手机上把笔记本面板挪到 <body> 下：iOS Safari / 微信里，fixed 面板若嵌在可滚动容器内会无法滑动
 function placeNotebookPanel() {
@@ -1066,6 +1349,7 @@ document.addEventListener('keydown', function(e) {
 
 // ===== 初始化 =====
 renderSidebar();
+showExamOverview();
 updateProgress();
 initSync();
 // 定时从云端拉取，实现多端自动同步（每 90 秒）
