@@ -58,9 +58,10 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 .content-header { padding: 14px 22px 8px; border-bottom: 1px solid var(--rule); background: var(--bg); flex-shrink: 0; }
 .content-header h2 { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
 .content-header .subtitle { font-size: 0.76rem; color: var(--muted); margin-top: 2px; }
-.content-body { flex: 1; overflow-y: auto; padding: 18px 22px; display: flex; gap: 18px; align-items: flex-start; -webkit-overflow-scrolling: touch; }
-.content-body::-webkit-scrollbar { width: 6px; }
-.content-body::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+.content-body { flex: 1; min-height: 0; display: flex; overflow: hidden; }
+.text-scroll { flex: 1; min-width: 0; overflow-y: auto; padding: 18px 22px; -webkit-overflow-scrolling: touch; }
+.text-scroll::-webkit-scrollbar { width: 6px; }
+.text-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
 
 .text-block { flex: 1; max-width: 720px; min-width: 0; }
 .paragraph { padding: 14px 18px; margin-bottom: 10px; background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--radius); position: relative; font-size: 0.92rem; line-height: 1.8; transition: var(--transition); }
@@ -81,9 +82,22 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 .qa-block.has-annotation { border-left: 4px solid var(--accent2); }
 
 /* ===== NOTEBOOK PANEL ===== */
-.notebook-panel { width: 380px; min-width: 380px; max-width: 380px; background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--radius); display: flex; flex-direction: column; height: calc(100vh - 132px); position: sticky; top: 0; overflow: hidden; box-shadow: var(--shadow); }
+.notebook-panel { width: 380px; min-width: 380px; max-width: 380px; margin: 18px 22px 18px 0; background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--radius); display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-shadow: var(--shadow); }
 .notebook-header { padding: 14px 16px; border-bottom: 1px solid var(--rule); flex-shrink: 0; }
-.notebook-header .nb-title { font-weight: 700; font-size: 0.9rem; color: var(--accent); display: flex; justify-content: space-between; align-items: center; }
+.notebook-header .nb-title { font-weight: 700; font-size: 0.9rem; color: var(--accent); display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.nb-close { display: none; border: none; background: none; font-size: 1.1rem; color: var(--muted); cursor: pointer; padding: 0 4px; line-height: 1; }
+/* 笔记筛选标签 */
+.nb-filters { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+.nb-filter-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.nb-filter-row .lbl { font-size: 0.68rem; color: var(--muted); font-weight: 700; min-width: 28px; }
+.chip { border: 1px solid var(--rule); background: var(--bg2); color: var(--ink); border-radius: 14px; padding: 3px 10px; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: var(--transition); white-space: nowrap; font-family: inherit; }
+.chip .n { color: var(--muted); font-weight: 500; margin-left: 2px; }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip.on .n { color: rgba(255,255,255,0.8); }
+.chip.t-vocab.on { background: var(--accent2); border-color: var(--accent2); }
+.chip.t-phrase.on { background: var(--purple); border-color: var(--purple); }
+.chip.t-grammar.on { background: var(--accent); border-color: var(--accent); }
+.chip:disabled { opacity: 0.45; cursor: not-allowed; }
 .notebook-header .nb-sub { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
 .nb-toolbar { display: flex; gap: 6px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
 .sync-status { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 0.72rem; }
@@ -99,7 +113,7 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 .nb-toolbar input { flex: 1; min-width: 0; padding: 5px 10px; border: 1px solid var(--rule); border-radius: 6px; font-size: 0.78rem; outline: none; background: var(--bg); }
 .mini-btn { padding: 5px 9px; border: 1px solid var(--rule); border-radius: 6px; font-size: 0.72rem; font-weight: 600; cursor: pointer; background: var(--bg2); color: var(--ink); transition: var(--transition); white-space: nowrap; }
 .mini-btn:hover { background: var(--bg); }
-.notebook-body { flex: 1; overflow-y: auto; padding: 12px 14px; -webkit-overflow-scrolling: touch; }
+.notebook-body { flex: 1; min-height: 0; overflow-y: auto; padding: 12px 14px; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; }
 .notebook-body::-webkit-scrollbar { width: 4px; }
 .notebook-body::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
 
@@ -189,11 +203,17 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
   .header-actions input { width: 120px; }
   .sidebar { display: none; }
   .sidebar.open { display: flex; position: fixed; z-index: 900; top: 56px; left: 0; bottom: 0; width: 280px; box-shadow: 2px 0 12px rgba(0,0,0,0.15); }
-  .content-body { flex-direction: column; padding: 14px 12px 90px; }
+  .text-scroll { padding: 14px 12px 90px; }
   .text-block { max-width: 100%; width: 100%; }
 
-  .notebook-panel { position: fixed; left: 0; right: 0; top: 26vh; width: 100%; min-width: 100%; max-width: 100%; height: 74vh; border-radius: 14px 14px 0 0; transform: translateY(110%); transition: transform 0.28s ease; z-index: 900; box-shadow: 0 -6px 24px rgba(0,0,0,0.2); }
+  /* 手机：笔记本是底部抽屉。用 dvh 适配浏览器地址栏伸缩，避免底部被遮住 */
+  .notebook-panel { position: fixed; left: 0; right: 0; bottom: 0; margin: 0; width: 100%; min-width: 100%; max-width: 100%; height: 80vh; height: 80dvh; border-radius: 14px 14px 0 0; transform: translateY(110%); transition: transform 0.28s ease; z-index: 900; box-shadow: 0 -6px 24px rgba(0,0,0,0.2); padding-bottom: env(safe-area-inset-bottom); }
   .notebook-panel.show { transform: translateY(0); }
+  .notebook-header { padding: 12px 14px 10px; }
+  .notebook-header .nb-sub { display: none; }
+  .nb-close { display: block; }
+  .nb-filter-row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .nb-filter-row::-webkit-scrollbar { display: none; }
   .notebook-scrim { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 880; }
   .notebook-scrim.show { display: block; }
   .fab-nb { display: flex; }
@@ -227,12 +247,14 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
       <div class="subtitle" id="contentSubtitle">在左侧选择一篇导游词或问答开始</div>
     </div>
     <div class="content-body" id="contentBody">
-      <div class="text-block" id="textBlock">
-        <div class="nb-empty"><div class="icon">📋</div><p>从左侧选择一篇内容开始学习</p></div>
+      <div class="text-scroll" id="textScroll">
+        <div class="text-block" id="textBlock">
+          <div class="nb-empty"><div class="icon">📋</div><p>从左侧选择一篇内容开始学习</p></div>
+        </div>
       </div>
       <div class="notebook-panel" id="notebookPanel">
         <div class="notebook-header">
-          <div class="nb-title"><span>📓 我的笔记本</span><span style="font-size:0.7rem;color:var(--muted)" id="nbCount"></span></div>
+          <div class="nb-title"><span>📓 我的笔记本</span><span style="flex:1"></span><span style="font-size:0.7rem;color:var(--muted)" id="nbCount"></span><button class="nb-close" onclick="toggleNotebook(false)" title="关闭">✕</button></div>
           <div class="nb-sub">选中教材里不认识的词/短语/语法，加入这里积累</div>
           <div class="sync-status" id="syncStatus">
             <span class="sync-dot" id="syncDot"></span>
@@ -244,6 +266,10 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
             <button class="mini-btn" onclick="exportNotebook()">导出</button>
             <button class="mini-btn" onclick="document.getElementById('importFile').click()">导入</button>
             <input type="file" id="importFile" accept=".json" style="display:none" onchange="importNotebook(this.files[0])">
+          </div>
+          <div class="nb-filters">
+            <div class="nb-filter-row" id="nbScopeChips"></div>
+            <div class="nb-filter-row" id="nbTypeChips"></div>
           </div>
         </div>
         <div class="notebook-body" id="notebookBody">
@@ -284,7 +310,8 @@ header h1 span { color: var(--accent2); font-size: 0.8rem; font-weight: 500; }
 <script>
 // ===== 常量与状态 =====
 const NB_KEY = 'guia_es_notebook_v2';
-const TR_KEY = 'guia_es_translations_v2';
+const TR_KEY = 'guia_es_translations_v3';   // v3：换了翻译引擎，旧的 MyMemory 缓存作废
+const NBF_KEY = 'guia_es_nb_filter_v1';
 let currentTab = 'guiones';
 let currentView = null;            // {mode:'guion'|'pregunta', ...}
 let notebook = loadNotebook();
@@ -292,6 +319,7 @@ let translations = loadTranslations();
 let currentSelection = null;       // {text, context, source}
 let pendingText = '';              // 供语法选择器使用
 let saving = false;
+let nbFilter = loadNbFilter();     // {scope:'current'|'all', types:[...]}
 
 // ===== 工具函数 =====
 function escapeHtml(s) {
@@ -307,7 +335,12 @@ function loadNotebook() {
 }
 function persistNotebook() { notebook.updatedAt = Date.now(); localStorage.setItem(NB_KEY, JSON.stringify(notebook)); }
 function loadTranslations() { try { const s = localStorage.getItem(TR_KEY); if (s) return JSON.parse(s); } catch(e) {} return {}; }
-function persistTranslations() { localStorage.setItem(TR_KEY, JSON.stringify(translations)); }
+function persistTranslations() { try { localStorage.setItem(TR_KEY, JSON.stringify(translations)); } catch(e) {} }
+function loadNbFilter() {
+  try { const o = JSON.parse(localStorage.getItem(NBF_KEY)); if (o && o.scope) return { scope: o.scope, types: Array.isArray(o.types) ? o.types : [] }; } catch(e) {}
+  return { scope: 'current', types: [] };
+}
+function persistNbFilter() { try { localStorage.setItem(NBF_KEY, JSON.stringify(nbFilter)); } catch(e) {} }
 
 // ===== Supabase 云同步（REST，无需 SDK）=====
 function supabaseEnabled() { return typeof SUPABASE_CONFIG !== 'undefined' && (SUPABASE_CONFIG.url || SUPABASE_CONFIG.proxyUrl) && SUPABASE_CONFIG.anonKey; }
@@ -446,6 +479,7 @@ function switchTab(tab) {
   document.getElementById('contentSubtitle').textContent = '在左侧选择一篇导游词或问答开始';
   document.getElementById('textBlock').innerHTML = '<div class="nb-empty"><div class="icon">📋</div><p>从左侧选择一篇内容开始学习</p></div>';
   document.getElementById('searchInput').value = '';
+  renderNotebook();
 }
 
 // ===== 加载教材 =====
@@ -475,6 +509,7 @@ function loadGuion(spotId, vIdx, highlightPara) {
   });
   document.getElementById('textBlock').innerHTML = html;
   highlightSidebar('guion', spotId, vIdx);
+  renderNotebook();
   closeNotebookIfMobile();
 
   if (highlightPara != null) {
@@ -504,6 +539,7 @@ function loadPregunta(catIdx, qIdx) {
       <div class="qa-toggle" onclick="toggleQA(this.parentElement)">▼ 查看答案</div>
     </div>`;
   highlightSidebar('pregunta', catIdx, qIdx);
+  renderNotebook();
   closeNotebookIfMobile();
 }
 
@@ -576,28 +612,66 @@ function showPopup(rect) {
 }
 function hidePopup() { document.getElementById('selPopup').style.display = 'none'; }
 
-// ===== 翻译（在线 + 缓存）=====
-async function translateText(text) {
-  const key = text.toLowerCase().trim();
-  if (translations[key]) return translations[key];
-  if (navigator.onLine === false) return '';
+// ===== 翻译（Cloudflare Worker /translate 优先，MyMemory 兜底）=====
+// Worker 端：配置了大模型 Key（如 DeepSeek）→ 结合上下文的精准释义；没配置 → Google 翻译 + 词典义项。
+// 若 Worker 还是旧版本（没有 /translate），自动退回 MyMemory。
+const PROVIDER_LABEL = { llm: 'AI 语境释义', google: 'Google 翻译', mymemory: 'MyMemory（备用）' };
+let workerTranslateBroken = false;
 
+function translateEndpoint() {
+  if (typeof TRANSLATE_CONFIG !== 'undefined' && TRANSLATE_CONFIG.endpoint) return TRANSLATE_CONFIG.endpoint;
+  if (typeof SUPABASE_CONFIG !== 'undefined' && SUPABASE_CONFIG.proxyUrl) return SUPABASE_CONFIG.proxyUrl.replace(/\/$/, '') + '/translate';
+  return '';
+}
+
+async function translateViaWorker(text, context, type) {
+  const ep = translateEndpoint();
+  if (!ep || workerTranslateBroken) return null;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 30000);
+  try {
+    const res = await fetch(ep, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal,
+      body: JSON.stringify({ text, context: (context || '').slice(0, 600), type })
+    });
+    if (res.status === 404 || res.status === 405) { workerTranslateBroken = true; return null; }
+    if (!res.ok) return null;
+    const j = await res.json();
+    if (!j || !j.meaning) return null;
+    if (j.llmError) console.warn('大模型调用失败，已改用 Google 翻译：', j.llmError);
+    return { meaning: String(j.meaning).trim(), note: String(j.note || '').trim(), provider: j.provider || 'google', llmError: j.llmError || '' };
+  } catch (e) {
+    console.warn('Worker 翻译失败', e);
+    return null;
+  } finally { clearTimeout(timer); }
+}
+
+async function translateViaMyMemory(text) {
   try {
     const url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=es|zh-CN';
     const res = await fetch(url);
     const json = await res.json();
     let meaning = (json.responseData && json.responseData.translatedText) || '';
-    // 优先取神经机器翻译条目，避免语料库里的低质量匹配
     const mt = (json.matches || []).find(m => m['created-by'] === 'MT!');
     if (mt && mt.translation) meaning = mt.translation;
     meaning = String(meaning).trim();
-    translations[key] = meaning;
-    persistTranslations();
-    return meaning;
+    return meaning ? { meaning, note: '', provider: 'mymemory' } : null;
   } catch (e) {
-    console.warn('翻译失败', e);
-    return '';
+    console.warn('MyMemory 翻译失败', e);
+    return null;
   }
+}
+
+// 返回 {meaning, note, provider} 或 null
+async function translateText(text, context, type, force) {
+  // 同一个词在不同句子里意思可能不同，所以缓存键带上下文
+  const key = text.toLowerCase().trim() + '\u0001' + (context || '').slice(0, 200);
+  if (!force && translations[key]) return translations[key];
+  if (navigator.onLine === false) return null;
+  const r = (await translateViaWorker(text, context, type)) || (await translateViaMyMemory(text));
+  // 只缓存好结果：AI 失败时的 Google 兜底不缓存，等 AI 修好后能重新拿到语境释义
+  if (r && r.provider !== 'mymemory' && !r.llmError) { translations[key] = r; persistTranslations(); }
+  return r;
 }
 
 // ===== 加入词汇 / 短语 =====
@@ -611,24 +685,27 @@ async function addWithTranslate(type) {
   openModal(`<div class="modal-title">加入笔记本：${type === 'vocab' ? '词汇' : '短语'}</div>
     <div class="modal-body">
       <div class="field"><label>原文</label><div class="static-text">${escapeHtml(text)}</div></div>
-      <div class="field"><label>中文释义（正在翻译…）</label><textarea id="meaningInput" rows="2">…</textarea></div>
-      <div class="field"><label>补充笔记（可选）</label><textarea id="noteInput" rows="2" placeholder="例句、用法、联想记忆…"></textarea></div>
+      <div class="field"><label id="meaningLabel">中文释义（正在翻译…）</label><textarea id="meaningInput" rows="2">…</textarea></div>
+      <div class="field"><label>补充笔记（可选）</label><textarea id="noteInput" rows="3" placeholder="例句、用法、联想记忆…"></textarea></div>
     </div>
     <div class="modal-foot">
       <button class="btn" onclick="closeModal()">取消</button>
       <button class="btn primary" onclick="saveTranslatedItem('${type}')">💾 保存</button>
     </div>`);
 
-  const meaning = await translateText(text);
+  const r = await translateText(text, context, type);
   const mi = document.getElementById('meaningInput');
-  if (mi) {
-    if (meaning) {
-      mi.value = meaning;
-      if (navigator.onLine === false) showToast('⚠️ 离线：请手动填写释义');
-    } else {
-      mi.value = '';
-      showToast('⚠️ 未获取到释义，请手动填写');
-    }
+  const ml = document.getElementById('meaningLabel');
+  const ni = document.getElementById('noteInput');
+  if (!mi) return;
+  if (r && r.meaning) {
+    mi.value = r.meaning;
+    if (ml) ml.textContent = '中文释义（来源：' + (PROVIDER_LABEL[r.provider] || r.provider) + (r.llmError ? '，AI 调用失败，详见 F12 控制台' : '') + '，可修改）';
+    if (ni && r.note && !ni.value.trim()) ni.value = r.note;
+  } else {
+    mi.value = '';
+    if (ml) ml.textContent = '中文释义';
+    showToast(navigator.onLine === false ? '⚠️ 离线：请手动填写释义' : '⚠️ 未获取到释义，请手动填写');
   }
 }
 
@@ -750,12 +827,51 @@ const TYPE_LABEL = { vocab: '词汇', phrase: '短语', grammar: '语法' };
 const TYPE_COLOR = { vocab: 'vocab', phrase: 'phrase', grammar: 'grammar' };
 const TYPE_ORDER = ['vocab', 'phrase', 'grammar'];
 
+// 笔记是否来自当前打开的这篇范文 / 这道问答
+function itemInCurrentView(it) {
+  const s = it.source, v = currentView;
+  if (!s || !v || s.mode !== v.mode) return false;
+  if (v.mode === 'guion') return s.spotId === v.spotId && s.versionIdx === v.versionIdx;
+  return s.catIdx === v.catIdx && s.qIdx === v.qIdx;
+}
+function setNbScope(scope) { nbFilter.scope = scope; persistNbFilter(); renderNotebook(); }
+function toggleNbType(type) {
+  if (type === 'all') nbFilter.types = [];
+  else {
+    const set = new Set(nbFilter.types);
+    set.has(type) ? set.delete(type) : set.add(type);
+    // 三类全选 = 不筛选
+    nbFilter.types = set.size === TYPE_ORDER.length ? [] : TYPE_ORDER.filter(t => set.has(t));
+  }
+  persistNbFilter(); renderNotebook();
+}
+function renderNbChips(inCurrent, scoped) {
+  const hasView = !!currentView;
+  const viewName = !hasView ? '本篇' : currentView.mode === 'guion' ? '本篇范文' : '本题';
+  const scope = hasView ? nbFilter.scope : 'all';
+  document.getElementById('nbScopeChips').innerHTML =
+    `<span class="lbl">范围</span>
+     <button class="chip${scope === 'current' ? ' on' : ''}" ${hasView ? '' : 'disabled title="先在左侧打开一篇范文"'} onclick="setNbScope('current')">${viewName}<span class="n">${hasView ? inCurrent.length : ''}</span></button>
+     <button class="chip${scope === 'all' ? ' on' : ''}" onclick="setNbScope('all')">全部<span class="n">${notebook.items.length}</span></button>`;
+  const types = nbFilter.types;
+  let html = `<span class="lbl">类型</span><button class="chip${types.length ? '' : ' on'}" onclick="toggleNbType('all')">全部</button>`;
+  TYPE_ORDER.forEach(t => {
+    const n = scoped.filter(it => it.type === t).length;
+    html += `<button class="chip t-${t}${types.includes(t) ? ' on' : ''}" onclick="toggleNbType('${t}')">${TYPE_LABEL[t]}<span class="n">${n}</span></button>`;
+  });
+  document.getElementById('nbTypeChips').innerHTML = html;
+}
+
 function renderNotebook() {
   const body = document.getElementById('notebookBody');
   const countEl = document.getElementById('nbCount');
   const filter = (document.getElementById('nbFilter').value || '').toLowerCase().trim();
 
-  let items = notebook.items;
+  const inCurrent = currentView ? notebook.items.filter(itemInCurrentView) : [];
+  const scopeCurrent = !!currentView && nbFilter.scope === 'current';
+  let items = scopeCurrent ? inCurrent : notebook.items;
+  renderNbChips(inCurrent, items);
+  if (nbFilter.types.length) items = items.filter(it => nbFilter.types.includes(it.type));
   if (filter) {
     items = items.filter(it =>
       (it.text && it.text.toLowerCase().includes(filter)) ||
@@ -764,11 +880,12 @@ function renderNotebook() {
       (it.note && it.note.toLowerCase().includes(filter)));
   }
 
-  countEl.textContent = `${notebook.items.length} 条`;
+  countEl.textContent = items.length === notebook.items.length ? `${notebook.items.length} 条` : `${items.length} / ${notebook.items.length} 条`;
 
   if (items.length === 0) {
-    body.innerHTML = filter
-      ? '<div class="nb-empty"><div class="icon">🔍</div><p>没有匹配的知识点</p></div>'
+    const filtered = filter || scopeCurrent || nbFilter.types.length;
+    body.innerHTML = notebook.items.length && filtered
+      ? `<div class="nb-empty"><div class="icon">🔍</div><p>${scopeCurrent && !inCurrent.length ? '这篇还没有笔记' : '没有符合筛选条件的笔记'}</p>${scopeCurrent ? '<p style="margin-top:10px"><button class="mini-btn" onclick="setNbScope(\'all\')">查看全部笔记</button></p>' : ''}</div>`
       : `<div class="nb-empty"><div class="icon">📝</div><p>笔记本是空的</p><p style="font-size:0.75rem;margin-top:6px">在教材中选中不认识的词语/短语，<br>再选择「词汇 / 短语 / 语法」加入</p></div>`;
     return;
   }
@@ -912,6 +1029,16 @@ function toggleNotebook(force) {
   scrim.classList.toggle('show', show);
 }
 function closeNotebookIfMobile() { if (window.innerWidth <= 768) toggleNotebook(false); }
+// 手机上把笔记本面板挪到 <body> 下：iOS Safari / 微信里，fixed 面板若嵌在可滚动容器内会无法滑动
+function placeNotebookPanel() {
+  const panel = document.getElementById('notebookPanel');
+  const mobile = window.innerWidth <= 768;
+  const host = mobile ? document.body : document.getElementById('contentBody');
+  if (panel.parentElement !== host) host.appendChild(panel);
+  if (!mobile) { panel.classList.remove('show'); document.getElementById('notebookScrim').classList.remove('show'); }
+}
+placeNotebookPanel();
+window.addEventListener('resize', placeNotebookPanel);
 
 document.addEventListener('click', function(e) {
   const sidebar = document.getElementById('sidebar');
