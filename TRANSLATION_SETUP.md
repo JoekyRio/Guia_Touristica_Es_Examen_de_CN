@@ -123,6 +123,14 @@ https://shy-hall-dbd0.zhangjietong.workers.dev/translate?text=se%20encuentra&con
 {"meaning":"位于；坐落于","note":"原形 encontrarse · 代词式动词\n陈述式现在时第三人称单数，se encuentra en 表示「位于」","provider":"llm"}
 ```
 
+同一个 Worker 还负责**语法分析**（网页里选中文字后点「📐 语法」）。可以用下面的地址测试，成功时会看到 `"points":[...]`，里面是几个不同层面的语法讲解：
+
+```
+https://shy-hall-dbd0.zhangjietong.workers.dev/grammar?text=sentir%C3%A1n&context=Ustedes%20tambi%C3%A9n%20sentir%C3%A1n%20esta%20vida%20sin%20prisas.
+```
+
+语法分析只能用大模型，没有 Google 兜底：没配 `LLM_API_KEY` 时会返回 `语法分析需要在 Worker 里配置 LLM_API_KEY`，网页会自动改用本地语法库。
+
 如果看到的是 `"provider":"google"`，后面还跟着一个 `"llmError":"..."`，说明大模型没调通，Worker 自动换成了 Google 翻译。按下面的「常见问题」，根据 `llmError` 的内容排查。
 
 > 第一次调用可能要等几秒钟，这是正常的。
