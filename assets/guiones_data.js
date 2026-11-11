@@ -106,57 +106,57 @@ const guionesData = {
               "es": "Jiuzhaigou se encuentra en el condado de Jiuzhaigou, en la Prefectura Autónoma Tibetana y Qiang de Aba, y debe su nombre a las nueve aldeas tibetanas que hay en el valle. En 1992 fue inscrito en la Lista del Patrimonio Natural de la Humanidad. Sus lagos y cascadas se formaron muy lentamente, durante miles de años, gracias al agua rica en calcio. Es famoso por sus seis maravillas: lagos esmeralda, cascadas escalonadas, bosques multicolores, picos nevados, cultura tibetana y hielo azul. Aquí la gente llama a los lagos «haizi»."
             },
             {
-              "cn": "开始游览之前，我们先参观九寨沟生态文化展览馆。在这里，大家可以通过图片、标本和视频，了解海子是怎样形成的，认识大熊猫、金丝猴等珍稀动植物，还能了解藏族同胞爱护自然的传统。",
-              "es": "Antes de empezar el recorrido, visitamos la Sala de Exposición de Ecología y Cultura de Jiuzhaigou. Con fotos, ejemplares y videos, aquí podemos entender cómo se formaron los lagos, conocer animales raros como el panda gigante o el mono dorado, y descubrir la tradición tibetana de respeto a la naturaleza.",
-              "points": [
-                0
-              ]
-            },
-            {
               "cn": "进沟后的第一个景点是盆景滩。浅浅的流水中长着很多小树和灌木，它们的根紧紧抓住钙华滩，枝干自然弯曲，就像一盆盆天然的盆景，所以叫「盆景滩」。",
               "es": "El primer lugar dentro del valle es la Playa de los Bonsáis. En el agua poco profunda crecen muchos arbolitos y arbustos. Sus raíces se agarran a las rocas de calcio y sus ramas se curvan de forma natural, como si fueran bonsáis hechos por la propia naturaleza. Por eso tiene este nombre.",
               "points": [
-                1
+                0
               ]
             },
             {
               "cn": "接下来是树正寨，它是九寨沟里的一个藏族村寨。寨子里有五颜六色的经幡、白塔和靠水流转动的转经筒。村民们热情好客，大家可以品尝酥油茶。绕白塔和转经筒时，请按顺时针方向行走。",
               "es": "A continuación llegamos a la Aldea Tibetana de Shuzheng, uno de los pueblos tibetanos del valle. Aquí verán banderas de oración de muchos colores, estupas blancas y molinos de oración que giran con la fuerza del agua. Los habitantes son muy hospitalarios y podrán probar el té con mantequilla. Por favor, al rodear las estupas y los molinos de oración, caminen en el sentido de las agujas del reloj.",
               "points": [
-                2
+                1
               ]
             },
             {
-              "cn": "树正寨旁边就是树正群海。几十个大大小小的海子一个接一个，绵延好几公里。湖与湖之间由钙华堤连接，水从上一个湖流进下一个湖，形成一层层的小瀑布，在阳光下就像一串蓝色的宝石项链。",
-              "es": "Junto a la aldea están los Lagos de Shuzheng. Son decenas de lagos, grandes y pequeños, uno tras otro, a lo largo de varios kilómetros. Están unidos por pequeños diques de calcio, y el agua pasa de un lago al siguiente formando cascadas escalonadas. Con el sol parecen un collar de piedras preciosas azules.",
+              "cn": "树正寨旁边就是树正群海。几十个大大小小的海子一个接一个，绵延好几公里。湖与湖之间由钙华堤连接，水从上一个湖流进下一个湖，形成一层层的小瀑布。",
+              "es": "Junto a la aldea están los Lagos de Shuzheng. Son decenas de lagos, grandes y pequeños, uno tras otro, a lo largo de varios kilómetros. Están unidos por pequeños diques de calcio, y el agua pasa de un lago al siguiente formando cascadas escalonadas.",
               "points": [
-                3
+                2
               ]
             },
             {
               "cn": "再往前是犀牛海，它是树正沟里最大的海子之一。传说很久以前，一位生病的老喇嘛骑着犀牛来到这里，喝了湖水后病就好了。他舍不得离开，最后骑着犀牛走进了湖里，所以这里叫犀牛海。清晨湖面像镜子一样，非常适合拍照。",
               "es": "Más adelante está el Lago del Rinoceronte, uno de los lagos más grandes del valle de Shuzheng. Cuenta la leyenda que hace mucho tiempo un viejo lama enfermo llegó aquí montado en un rinoceronte. Bebió el agua del lago y se curó. Le gustó tanto este lugar que entró en el lago con su rinoceronte y se quedó para siempre. Por la mañana el agua parece un espejo, perfecta para hacer fotos.",
               "points": [
-                4
+                3
               ]
             },
             {
-              "cn": "现在我们来到了诺日朗瀑布。「诺日朗」在藏语里有「男神」「高大雄伟」的意思。瀑布宽约300米，是中国最宽的钙华瀑布之一。水流从树丛中倾泻而下，像一道巨大的白色水帘，声音震动山谷。冬天，瀑布会结成壮观的冰帘。",
-              "es": "Ahora estamos en la Cascada de Nuorilang. En tibetano, «Nuorilang» significa «dios masculino» o «alto y majestuoso». Tiene unos 300 metros de ancho y es una de las cascadas de calcio más anchas de China. El agua cae entre los árboles como una enorme cortina blanca, y su sonido llena todo el valle. En invierno, la cascada se congela y forma una espectacular cortina de hielo.",
+              "cn": "现在我们来到了诺日朗瀑布。「诺日朗」在藏语里有「男神」「高大雄伟」的意思。瀑布宽约300米，是中国最宽的钙华瀑布之一。水流从树丛中倾泻而下，像一道巨大的白色水帘，声音震动山谷。",
+              "es": "Ahora estamos en la Cascada de Nuorilang. En tibetano, «Nuorilang» significa «dios masculino» o «alto y majestuoso». Tiene unos 300 metros de ancho y es una de las cascadas de calcio más anchas de China. El agua cae entre los árboles como una enorme cortina blanca, y su sonido llena todo el valle.",
               "points": [
-                5
+                4
               ]
             },
             {
               "cn": "进入日则沟，我们看到珍珠滩瀑布。珍珠滩是一片倾斜的钙华滩，水流过高低不平的滩面，溅起无数水花，在阳光下像一颗颗滚动的珍珠。水流到滩的尽头落下，就形成了珍珠滩瀑布。86版电视剧《西游记》片尾中，唐僧师徒牵马走过的地方就是这里。",
               "es": "Entramos en el valle de Rize y vemos la Cascada de la Playa de Perlas. Es una gran pendiente de roca caliza: el agua corre sobre la superficie irregular y salpica miles de gotas que brillan al sol como perlas. Al final de la pendiente, el agua cae y forma la cascada. En la famosa serie de televisión china «Viaje al Oeste», de 1986, los protagonistas cruzan este lugar con su caballo.",
               "points": [
-                6
+                5
               ]
             },
             {
               "cn": "五花海被称为「九寨沟一绝」。在同一个湖里，可以看到鹅黄、墨绿、深蓝、藏青等多种颜色。这是因为湖底有钙华沉积和藻类，还有倒在水中的古树，在阳光下呈现出不同的色彩。从高处的观景台看下去，五花海就像一只开屏的孔雀。",
               "es": "El Lago de las Cinco Flores es considerado la joya de Jiuzhaigou. En un mismo lago se ven colores como amarillo claro, verde oscuro, azul intenso y azul marino. Esto se debe a los depósitos de calcio y a las algas del fondo, y también a los troncos de árboles antiguos que hay bajo el agua. Desde el mirador de arriba, el lago parece un pavo real con la cola abierta.",
+              "points": [
+                6
+              ]
+            },
+            {
+              "cn": "在日则沟，我们还要参观九寨沟生态文化展览馆。它2024年开馆，建在原来126林场的场部旧址上，主题是「人与自然山水和谐共生」。展览分为「自然与我们」「尊重与保护」「生命共同体」三个部分，介绍了九寨沟退耕还林、防治地质灾害，以及近年来修复世界自然遗产、保护生物多样性的成果。",
+              "es": "En el valle de Rize visitamos también la Sala de Exposición de Ecología y Cultura de Jiuzhaigou. Se abrió en 2024 en el antiguo edificio de la Estación Forestal 126, y su tema es «la armonía entre el ser humano y la naturaleza». Tiene tres partes: «La naturaleza y nosotros», «Respeto y protección» y «Una comunidad de vida». Aquí se explica cómo se recuperaron los bosques en antiguas tierras de cultivo, cómo se previenen los desastres geológicos y cómo se ha restaurado el patrimonio natural y protegido la biodiversidad en los últimos años.",
               "points": [
                 7
               ]
@@ -185,10 +185,6 @@ const guionesData = {
       "exam2026": true,
       "points_2026": [
         {
-          "cn": "九寨沟生态文化展览馆",
-          "es": "Sala de Exposición de Ecología y Cultura"
-        },
-        {
           "cn": "盆景滩",
           "es": "Playa de los Bonsáis"
         },
@@ -215,6 +211,10 @@ const guionesData = {
         {
           "cn": "五花海",
           "es": "Lago de las Cinco Flores"
+        },
+        {
+          "cn": "九寨沟生态文化展览馆",
+          "es": "Sala de Exposición de Ecología y Cultura"
         },
         {
           "cn": "五彩池",
@@ -338,8 +338,8 @@ const guionesData = {
               ]
             },
             {
-              "cn": "接下来我们参观地质博物馆，了解峨眉山的「前世今生」。几亿年前，这里还是一片海洋，后来地壳不断抬升，才形成了今天的高山，所以山上能找到海洋生物的化石。大约两亿六千万年前，这里发生过大规模的火山喷发，留下了大片的玄武岩，在地质学上叫「峨眉山玄武岩」，是世界知名的地质名词。",
-              "es": "A continuación visitamos el Museo Geológico para conocer la historia de la montaña. Hace cientos de millones de años, aquí había un mar. Después, la tierra se fue levantando poco a poco y se formaron estas montañas; por eso todavía se encuentran fósiles de animales marinos. Hace unos 260 millones de años hubo grandes erupciones volcánicas que dejaron enormes capas de basalto. Los geólogos lo llaman «basalto de Emeishan», un nombre conocido en todo el mundo.",
+              "cn": "接下来我们参观报国寺附近的地质博物馆，了解峨眉山的「前世今生」。几亿年前，这里还是一片海洋，后来地壳不断抬升，才形成了今天的高山，所以山上能找到海洋生物的化石。大约两亿六千万年前，这里发生过大规模的火山喷发，留下了大片的玄武岩，在地质学上叫「峨眉山玄武岩」，是世界知名的地质名词。",
+              "es": "A continuación visitamos el Museo Geológico, cerca del Templo de Baoguo, para conocer la historia de la montaña. Hace cientos de millones de años, aquí había un mar. Después, la tierra se fue levantando poco a poco y se formaron estas montañas; por eso todavía se encuentran fósiles de animales marinos. Hace unos 260 millones de años hubo grandes erupciones volcánicas que dejaron enormes capas de basalto. Los geólogos lo llaman «basalto de Emeishan», un nombre conocido en todo el mundo.",
               "points": [
                 2
               ]
@@ -462,29 +462,29 @@ const guionesData = {
               "es": "El Gran Buda está en la ciudad de Leshan, provincia de Sichuan, tallado en el Monte Lingyun, justo donde se juntan tres ríos: el Min, el Qingyi y el Dadu. En 1996 fue declarado, junto con el Monte Emei, Patrimonio Cultural y Natural de la Humanidad."
             },
             {
-              "cn": "大家看，这就是乐山大佛，它是一尊石刻的弥勒佛坐像。大佛从唐代开元元年，也就是公元713年开始修建，历时约90年才完成。佛像通高71米，是世界上最大的石刻弥勒佛坐像。佛头上有一千多个螺髻，脚背宽8.5米，上面可以坐一百多人。佛像的头发、衣领和衣褶里还藏着巧妙的排水沟，一千多年来保护着大佛不被雨水侵蚀。",
-              "es": "Miren, este es el Gran Buda de Leshan, una estatua de piedra del Buda Maitreya sentado. Se empezó a construir en el año 713, en la dinastía Tang, y tardaron unos noventa años en terminarlo. Mide 71 metros de altura y es la estatua de piedra de Maitreya sentado más grande del mundo. En su cabeza tiene más de mil rizos, y sobre uno de sus pies, de 8,5 metros de ancho, caben más de cien personas. Además, en el pelo, el cuello y los pliegues de la ropa hay canales escondidos para el agua, que desde hace más de mil años protegen la estatua de la lluvia.",
+              "cn": "大家看，这就是乐山大佛，它是一尊石刻的弥勒佛坐像。大佛从唐代开元元年，也就是公元713年开始修建，历时约90年才完成。佛像通高71米，是世界上最大的石刻弥勒佛坐像。佛头上有一千多个螺髻，脚背宽8.5米，上面可以坐一百多人。",
+              "es": "Miren, este es el Gran Buda de Leshan, una estatua de piedra del Buda Maitreya sentado. Se empezó a construir en el año 713, en la dinastía Tang, y tardaron unos noventa años en terminarlo. Mide 71 metros de altura y es la estatua de piedra de Maitreya sentado más grande del mundo. En su cabeza tiene más de mil rizos, y sobre uno de sus pies, de 8,5 metros de ancho, caben más de cien personas.",
               "points": [
                 0
               ]
             },
             {
-              "cn": "大佛旁边有一个小石洞，叫海师洞。修建大佛的发起人是海通法师。当时三江汇流，水流湍急，经常翻船。海通法师希望借佛的力量减少水患，就四处化缘。传说有官员想抢走修佛的钱，海通说「自目可剜，佛财难得」，真的挖下了自己的眼睛，官员吓得赶紧离开了。",
-              "es": "Junto al Buda hay una pequeña cueva llamada la Cueva del Maestro Haitong. El monje Haitong fue quien inició la obra. En aquella época, donde se juntan los tres ríos, el agua era muy peligrosa y muchos barcos se hundían. Haitong quería que el Buda calmara las aguas, así que recorrió muchos lugares para reunir dinero. Cuenta la leyenda que un funcionario quiso quedarse con ese dinero, y Haitong le dijo: «Puedo sacarme los ojos, pero no les daré el dinero del Buda». Y de verdad se sacó los ojos. El funcionario, asustado, se marchó.",
+              "cn": "大佛头部左后方的凌云山上，有一个深约10米的小石洞，叫海师洞。相传这是海通法师当年居住的地方；也有专家认为，它原本是一座东汉崖墓，后来被用作海通指挥修佛的地方。海通法师是修建大佛的发起人。当时三江汇流，水流湍急，经常翻船，他希望借佛的力量减少水患，就四处化缘。传说有官员想抢走修佛的钱，海通说「自目可剜，佛财难得」，真的挖下了自己的眼睛，官员吓得赶紧离开了。",
+              "es": "Detrás de la cabeza del Buda, a la izquierda, en el Monte Lingyun, hay una pequeña cueva de unos diez metros de profundidad: la Cueva del Maestro Haitong. Según la tradición, aquí vivía el monje Haitong; algunos expertos creen que en realidad era una tumba de la dinastía Han del Este que él usó para dirigir las obras. Haitong fue quien inició la construcción del Buda. En aquella época, donde se juntan los tres ríos, el agua era muy peligrosa y muchos barcos se hundían. Haitong quería que el Buda calmara las aguas, así que recorrió muchos lugares para reunir dinero. Cuenta la leyenda que un funcionario quiso quedarse con ese dinero, y Haitong le dijo: «Puedo sacarme los ojos, pero no les daré el dinero del Buda». Y de verdad se sacó los ojos. El funcionario, asustado, se marchó.",
               "points": [
                 1
               ]
             },
             {
-              "cn": "接下来我们走九曲栈道。它在大佛的右侧，是和大佛同时期开凿的。栈道沿着悬崖弯弯曲曲向下，一直通到大佛脚下。一路上，大家可以从不同角度近距离欣赏大佛。台阶很窄，请大家扶好栏杆，注意安全。",
-              "es": "Ahora bajamos por el Sendero de las Nueve Curvas, que está a la derecha del Buda y se talló en la misma época. El camino baja por el acantilado haciendo muchas curvas hasta llegar a los pies de la estatua. Así podemos ver el Buda de cerca y desde distintos ángulos. Los escalones son estrechos, así que agárrense a la barandilla y tengan cuidado.",
+              "cn": "接下来我们走九曲栈道。它在大佛右侧的崖壁上，是和大佛同时开凿的。栈道盘旋而下，一直通到大佛脚下，全程约217级台阶，最窄的地方不到1米。一路上，大家可以近距离看到大佛衣褶里的排水沟。请大家扶好栏杆，注意安全。",
+              "es": "Ahora bajamos por el Sendero de las Nueve Curvas, tallado en el acantilado a la derecha del Buda en la misma época que la estatua. El camino baja en zigzag hasta los pies del Buda: son unos 217 escalones, y en algunos puntos mide menos de un metro de ancho. Por el camino podemos ver de cerca los canales para el agua escondidos en los pliegues de la ropa. Por favor, agárrense a la barandilla y tengan cuidado.",
               "points": [
                 2
               ]
             },
             {
-              "cn": "在大佛附近，大家可以看到一面特别的墙——大佛修缮材料色阶实验墙。大佛经过一千多年的风吹雨打，需要定期「体检」和修缮。为了让修补材料和大佛原来的岩石颜色尽量一致，文物保护人员把不同配比的材料做成一块块色块，放在户外，观察它们经过日晒雨淋后的变化，再选出最合适的材料。",
-              "es": "Cerca del Buda hay un muro muy especial: el Muro de Pruebas de Color para la Restauración. Después de más de mil años de viento y lluvia, el Buda necesita «chequeos médicos» y reparaciones. Para que el material de reparación tenga un color parecido al de la piedra original, los expertos prepararon muestras con distintas mezclas y las dejaron al aire libre para ver cómo cambiaban con el sol y la lluvia. Así eligieron el mejor material.",
+              "cn": "在大佛附近，有一面特别的墙——大佛修缮材料色阶实验墙，人们把它叫作大佛的「粉底盘」。大佛经过一千多年的风吹雨打，需要定期「体检」和修缮，2019年就进行过一次约半年的「体检」。为了让修补材料和大佛原来的岩石颜色一致，文物保护人员用不同材料、不同配比做成一个个不同「色号」的小方块，让它们和大佛一起经受风雨，修缮时再从中选出最合适的颜色。",
+              "es": "Cerca del Buda hay un muro muy especial: el Muro de Pruebas de Color para la Restauración, que la gente llama «la paleta de maquillaje» del Buda. Después de más de mil años de viento y lluvia, el Buda necesita «chequeos médicos» y reparaciones; en 2019, por ejemplo, tuvo uno de unos seis meses. Para que el material de reparación tenga el mismo color que la piedra original, los expertos hicieron pequeños bloques con distintos materiales y mezclas, cada uno de un «tono» diferente. Estos bloques soportan el sol y la lluvia junto al Buda, y cuando hay que restaurarlo, se elige el color que mejor encaja.",
               "points": [
                 3
               ]
@@ -504,8 +504,8 @@ const guionesData = {
               ]
             },
             {
-              "cn": "凌云山灵宝峰顶上的灵宝塔建于唐代，是一座十三层的砖塔，高约38米。古时候，船夫远远看到这座塔，就知道快到乐山了，所以它也是三江上的「航标」。",
-              "es": "En la cima del pico Lingbao se levanta la Pagoda de Lingbao, construida en la dinastía Tang. Es una torre de ladrillo de trece pisos y unos 38 metros de altura. Antiguamente, cuando los barqueros la veían a lo lejos, sabían que estaban llegando a Leshan; por eso también servía como faro para los ríos.",
+              "cn": "凌云山灵宝峰顶上的灵宝塔建于唐代，是一座十三层的砖塔，高约38米。古时候，它也是三江上船夫的「航标」。",
+              "es": "En la cima del pico Lingbao se levanta la Pagoda de Lingbao, construida en la dinastía Tang. Es una torre de ladrillo de trece pisos y unos 38 metros de altura. Antiguamente también servía de guía a los barqueros de los tres ríos.",
               "points": [
                 6
               ]
@@ -518,8 +518,8 @@ const guionesData = {
               ]
             },
             {
-              "cn": "乌尤寺在乌尤山上。乌尤山原来和凌云山连在一起，相传秦代李冰治水时把它凿开，就成了江中的一座小岛。乌尤寺始建于唐代，原名正觉寺，北宋时改名乌尤寺。寺院四面环水，非常清幽。",
-              "es": "El Templo de Wuyou está en el Monte Wuyou. Esta colina antes estaba unida al Monte Lingyun, pero según la tradición, Li Bing la separó en la dinastía Qin al hacer obras para controlar el agua, y así se convirtió en una pequeña isla. El templo se fundó en la dinastía Tang con otro nombre, y en la dinastía Song recibió el nombre de Wuyou. Rodeado de agua, es un lugar muy tranquilo.",
+              "cn": "乌尤寺在乌尤山上。乌尤山原来和凌云山连在一起，相传秦代李冰治水时把它凿开，就成了江中的一座小岛。乌尤寺始建于唐代，四面环水，非常清幽。",
+              "es": "El Templo de Wuyou está en el Monte Wuyou. Esta colina antes estaba unida al Monte Lingyun, pero según la tradición, Li Bing la separó en la dinastía Qin al hacer obras para controlar el agua, y así se convirtió en una pequeña isla. El templo, fundado en la dinastía Tang y rodeado de agua, es un lugar muy tranquilo.",
               "points": [
                 8
               ]
@@ -676,8 +676,8 @@ const guionesData = {
               "es": "Estimados visitantes, ¡muy buenos días a todos! Bienvenidos al Museo Conmemorativo de los Tres Su, en Meishan. Soy su guía de hoy. Vamos a entrar juntos en la casa de Su Xun, Su Shi y Su Zhe, padre e hijos, tres grandes escritores de la dinastía Song del Norte."
             },
             {
-              "cn": "三苏祠位于眉山市东坡区，原来是三苏的故居，元代改宅为祠，明末毁于战火，清代康熙年间重建。在中国文学史上著名的「唐宋八大家」中，苏家父子就占了三位，所以人们说「一门父子三词客，千古文章四大家」。",
-              "es": "El museo está en el distrito de Dongpo, en Meishan. Al principio era la casa de la familia Su; en la dinastía Yuan se convirtió en templo conmemorativo, en la dinastía Ming fue destruido por la guerra y en la dinastía Qing se volvió a construir. De los «Ocho Grandes Maestros de la prosa de las dinastías Tang y Song», tres son de esta familia. ¡Tres grandes escritores en una sola casa!"
+              "cn": "三苏祠位于眉山市东坡区，原来是三苏的故居，元末明初改宅为祠，明末毁于战火，清代康熙四年（1665年）在原址重建，今天占地一百多亩，是一座古典园林。在中国文学史上著名的「唐宋八大家」中，苏家父子就占了三位，所以人们说「一门父子三词客，千古文章四大家」。",
+              "es": "El museo está en el distrito de Dongpo, en Meishan. Al principio era la casa de la familia Su; entre finales de la dinastía Yuan y principios de la Ming se convirtió en templo conmemorativo. Fue destruido por la guerra a finales de la dinastía Ming y se reconstruyó en el mismo lugar en 1665, en la dinastía Qing. Hoy es un jardín clásico de unas siete hectáreas. De los «Ocho Grandes Maestros de la prosa de las dinastías Tang y Song», tres son de esta familia. ¡Tres grandes escritores en una sola casa!"
             },
             {
               "cn": "我们从南大门进入。红墙环绕，绿水相映，三苏祠的特点可以用「三分水，二分竹」来形容，园中水多、竹多、古树多，既庄严又充满诗意。",
@@ -736,15 +736,15 @@ const guionesData = {
               ]
             },
             {
-              "cn": "这尊东坡盘陀坐像，是根据古代流传的东坡画像制作的。东坡坐在一块大石头上，手持竹杖，神情轻松自在。苏轼一生多次被贬，却总是乐观豁达，他写道：「回首向来萧瑟处，归去，也无风雨也无晴。」",
-              "es": "Esta es la Estatua de Dongpo Sentado en la Roca, hecha a partir de un retrato antiguo. Su Dongpo está sentado sobre una gran piedra, con un bastón de bambú, muy relajado. A lo largo de su vida fue desterrado varias veces, pero siempre fue optimista. Él escribió: «Miro atrás, al camino difícil; vuelvo a casa, y para mí ya no hay ni lluvia ni sol».",
+              "cn": "披风榭前莲池中央的这尊东坡盘陀坐像，是1982年由四川省文物管理委员会的赵树桐等人设计制作的，依据是北宋画家李公麟画的《东坡盘陀画像》。东坡坐在一块倾斜的大石头上，神情轻松自在，池边种着梅、兰、竹、菊。苏轼一生多次被贬，却总是乐观豁达，他写道：「回首向来萧瑟处，归去，也无风雨也无晴。」",
+              "es": "En medio del estanque de lotos, delante del Pabellón Pifeng, está la Estatua de Dongpo Sentado en la Roca. La diseñaron en 1982 Zhao Shutong y otros expertos de la Comisión de Patrimonio de Sichuan, a partir de un famoso retrato pintado por Li Gonglin en la dinastía Song del Norte. Su Dongpo está sentado sobre una gran piedra inclinada, muy relajado, y alrededor del estanque hay ciruelos, orquídeas, bambúes y crisantemos. A lo largo de su vida fue desterrado varias veces, pero siempre fue optimista. Él escribió: «Miro atrás, al camino difícil; vuelvo a casa, y para mí ya no hay ni lluvia ni sol».",
               "points": [
                 8
               ]
             },
             {
-              "cn": "最后是东坡书院。这里通过展览、讲座、书法和诗词活动，展示和传承三苏文化，很多学生会来这里研学。大家也可以在这里体验写书法、读东坡诗词。",
-              "es": "Por último, la Academia Dongpo. Aquí se organizan exposiciones, conferencias y actividades de caligrafía y poesía para dar a conocer y transmitir la cultura de los tres Su. Muchos estudiantes vienen a aprender, y ustedes también pueden probar la caligrafía china o leer poemas de Su Dongpo.",
+              "cn": "最后是东坡书院。它位于三苏祠南堂，2020年正式开放，由眉山市和四川大学共同建设。书院有两进院落，青砖绿瓦，主要建筑是礼殿和讲堂。这里经常举办讲座、诗词和书法体验、祭祀先贤等活动，2023年还开设了「东坡阅读空间」，大家可以在这里读一读东坡的诗词。",
+              "es": "Por último, la Academia Dongpo, en la parte sur del museo. Se abrió en 2020 y la construyeron juntos la ciudad de Meishan y la Universidad de Sichuan. Tiene dos patios, muros de ladrillo gris y tejas verdes, y sus edificios principales son el Salón de Ceremonias y la Sala de Conferencias. Aquí se organizan charlas, actividades de poesía y caligrafía, y ceremonias en honor a los sabios antiguos. En 2023 se abrió además el «Espacio de Lectura Dongpo», donde ustedes pueden leer los poemas de Su Dongpo.",
               "points": [
                 9
               ]
@@ -925,22 +925,22 @@ const guionesData = {
               ]
             },
             {
-              "cn": "幼年大熊猫别墅，也就是6号别墅，生活着一两岁的熊猫「小朋友」。它们特别爱玩，喜欢爬树、翻跟头、互相打闹，经常从树上滚下来，非常可爱，这里也是最受游客欢迎的地方之一。",
-              "es": "En la Villa de los Pandas Jóvenes, la Villa n.º 6, viven los «niños» panda de uno o dos años. Son muy juguetones: les encanta trepar, dar volteretas y pelearse en broma, y a menudo se caen de los árboles. Son adorables, y por eso este es uno de los lugares favoritos de los visitantes.",
+              "cn": "幼年大熊猫别墅，也就是6号别墅，生活着一两岁到两三岁的熊猫「小朋友」。它们特别爱玩，喜欢爬树、翻跟头、互相打闹，经常从树上滚下来，非常可爱，这里也是最受游客欢迎的地方之一。",
+              "es": "En la Villa de los Pandas Jóvenes, la Villa n.º 6, viven los «niños» panda de entre uno y tres años. Son muy juguetones: les encanta trepar, dar volteretas y pelearse en broma, y a menudo se caen de los árboles. Son adorables, y por eso este es uno de los lugares favoritos de los visitantes.",
               "points": [
                 5
               ]
             },
             {
-              "cn": "熊猫塔是基地的一处地标。登上塔顶，可以俯瞰整个基地的竹林、湖泊和熊猫别墅，大家可以在这里拍一张漂亮的全景照片。",
-              "es": "La Torre del Panda es uno de los símbolos de la base. Desde arriba se ve toda la base: los bosques de bambú, los lagos y las villas de los pandas. Es un lugar perfecto para hacer una bonita foto panorámica.",
+              "cn": "熊猫塔是基地扩建区的地标，高69.8米，是整个基地的最高点。从南面看，它就像一颗破土而出的春笋，塔顶还可以张开，好像竹笋正在「发芽」。登上塔顶，可以俯瞰整个基地的竹林、湖泊和熊猫馆舍，天气好时还能看到成都的城市地标。",
+              "es": "La Torre del Panda es el símbolo de la nueva zona de la base. Mide 69,8 metros y es el punto más alto de todo el recinto. Vista desde el sur, parece un brote de bambú que sale de la tierra, y su parte de arriba se puede abrir, como si el brote estuviera creciendo. Desde lo alto se ven los bosques de bambú, los lagos y las casas de los pandas, y con buen tiempo, también los edificios más famosos de Chengdu.",
               "points": [
                 6
               ]
             },
             {
-              "cn": "旭日馆和胜日馆位于基地扩建后的新区域。这两座场馆都有宽敞的室外运动场和舒适的室内馆舍，可以根据季节调节温度，让大熊猫冬暖夏凉。在这里，大家可以看到大熊猫在更接近自然的环境中生活。",
-              "es": "El Pabellón Xuri y el Pabellón Shengri están en la nueva zona de la base. Los dos tienen grandes patios exteriores y cómodas habitaciones interiores con temperatura controlada, para que los pandas estén calentitos en invierno y frescos en verano. Aquí podemos verlos vivir en un ambiente más parecido a la naturaleza.",
+              "cn": "2022年元旦，基地扩建区开始试运营。在「无限山丘」片区，有旭日馆、胜日馆、映日馆和云日馆四座大熊猫馆舍，名字里都有一个「日」字。我们参观的旭日馆和胜日馆都有宽敞的室外运动场和舒适的室内馆舍，可以调节温度，让大熊猫冬暖夏凉，生活在更接近自然的环境里。",
+              "es": "El 1 de enero de 2022 se abrió la nueva zona de la base. En el área de las «Colinas Infinitas» hay cuatro casas para pandas, y todas llevan en su nombre la palabra «sol»: Xuri, Shengri, Yingri y Yunri. Los pabellones Xuri y Shengri que visitamos tienen grandes patios exteriores y cómodas habitaciones interiores con temperatura controlada, para que los pandas estén calentitos en invierno y frescos en verano, en un ambiente muy parecido a la naturaleza.",
               "points": [
                 7,
                 8
@@ -1349,15 +1349,15 @@ const guionesData = {
               ]
             },
             {
-              "cn": "参观完展厅，我们来到互动体验展览厅。这里利用数字技术、触摸屏和虚拟现实，让大家「亲手」参与考古发掘、拼接和修复文物，还能和数字化的神树、面具互动，特别受孩子们欢迎。",
-              "es": "Después de las salas de exposición llegamos a la Sala de Experiencias Interactivas. Con tecnología digital, pantallas táctiles y realidad virtual, aquí podemos «participar» en una excavación, montar y restaurar piezas, y jugar con versiones digitales del árbol sagrado y de las máscaras. ¡A los niños les encanta!",
+              "cn": "参观完展厅，我们来到新馆二楼的互动体验展览厅。它2024年5月18日国际博物馆日开放，面积约1300平方米，分为「衣冠」「造物」「家园」「祭典」四个篇章。大家可以了解古蜀人的服饰和饮食，亲手体验铸铜、治玉、搭建房屋和祭祀等活动，大人孩子都能玩得开心。",
+              "es": "Después de las salas de exposición subimos al segundo piso del nuevo edificio, a la Sala de Experiencias Interactivas. Se abrió el 18 de mayo de 2024, Día Internacional de los Museos, y tiene unos 1.300 metros cuadrados. Está dividida en cuatro partes: «Ropa», «Artesanía», «Hogar» y «Ceremonias». Aquí podemos conocer la ropa y la comida de los antiguos habitantes de Shu y probar a fundir bronce, trabajar el jade, construir una casa o celebrar una ceremonia. ¡Grandes y pequeños se lo pasan genial!",
               "points": [
                 3
               ]
             },
             {
-              "cn": "最后是文物修复馆。这里是一个「透明」的修复工作室，隔着玻璃，大家可以看到文物修复师正在清理、拼接新出土的青铜器。很多碎成几百块的文物，要经过几个月甚至几年的工作才能恢复原貌，这需要很多的耐心和技术。",
-              "es": "Por último, el Centro de Restauración. Es un taller «transparente»: a través del cristal podemos ver a los restauradores limpiando y uniendo los bronces recién descubiertos. Muchas piezas están rotas en cientos de trozos y necesitan meses o incluso años de trabajo para recuperar su forma original. ¡Hace falta mucha paciencia y mucha técnica!",
+              "cn": "最后，我们离开新馆，来到原馆区的文物保护与修复馆。这里约1000平方米，一道玻璃墙把它分成工作区和展示区，是一个「透明」的修复工作室。隔着玻璃，大家可以看到文物修复师正在清理、拼接新出土的青铜器。很多碎成几百块的文物，要经过几个月甚至几年的工作才能恢复原貌，这需要很多的耐心和技术。",
+              "es": "Por último, salimos del nuevo edificio y vamos al Centro de Protección y Restauración, en la zona del museo antiguo. Tiene unos 1.000 metros cuadrados y una pared de cristal lo divide en una zona de trabajo y una zona para visitantes: es un taller «transparente». A través del cristal podemos ver a los restauradores limpiando y uniendo los bronces recién descubiertos. Muchas piezas están rotas en cientos de trozos y necesitan meses o incluso años de trabajo para recuperar su forma original. ¡Hace falta mucha paciencia y mucha técnica!",
               "points": [
                 4
               ]
@@ -1499,71 +1499,71 @@ const guionesData = {
               "es": "Daocheng Yading está en el condado de Daocheng, en la Prefectura Autónoma Tibetana de Garzê. Su centro son tres montañas sagradas, Xiannairi, Yangmaiyong y Xianuoduoji, colocadas en forma de triángulo. Los tibetanos las llaman «las tres montañas protectoras». Aquí hay picos nevados, glaciares, praderas, bosques y lagos de montaña, todo casi tan puro como en su origen."
             },
             {
-              "cn": "我们的第一站是扎灌崩。在这里，大家可以稍作休息，慢慢适应高原的海拔，同时远远眺望神山。从这里开始，我们将正式进入景区的核心区域。",
-              "es": "Nuestra primera parada es Zhaguanbeng. Aquí podemos descansar un poco, acostumbrarnos poco a poco a la altitud y ver a lo lejos las montañas sagradas. Desde aquí entramos en la zona central del área escénica.",
+              "cn": "我们的第一站是扎灌崩，海拔约3900米，这里是景区观光车的终点站，也是步行游览的起点。扎灌崩的名字来自藏语，和山崖上的修行洞有关，据说过去常有高僧在这里的崖洞中闭关修行。这里还有藏族同胞转山时一块块堆起来的玛尼堆。大家可以在这里稍作休息，适应海拔，准备好氧气和饮用水。",
+              "es": "Nuestra primera parada es Zhaguanbeng, a unos 3.900 metros de altitud. Aquí termina el autobús turístico y empieza el recorrido a pie. Su nombre viene del tibetano y tiene que ver con las cuevas de meditación del acantilado: se dice que antiguamente muchos grandes monjes se retiraban aquí a meditar. También hay montones de piedras mani que los peregrinos tibetanos han ido colocando una a una. Aquí podemos descansar un poco, acostumbrarnos a la altitud y preparar el oxígeno y el agua.",
               "points": [
                 0
               ]
             },
             {
-              "cn": "接下来是冲古寺，它坐落在仙乃日雪山脚下，是一座古老的藏传佛教寺院。寺前是开阔的冲古草甸，背后是高耸的雪山，景色非常美。参观寺院时，请大家顺时针绕行，不要随意拍摄僧人。",
-              "es": "Después llegamos al Monasterio de Chonggu, un antiguo monasterio budista tibetano al pie del Pico Xiannairi. Delante tiene la amplia pradera de Chonggu y detrás, la gran montaña nevada: un paisaje precioso. Durante la visita, por favor, caminen en el sentido de las agujas del reloj y no hagan fotos a los monjes sin permiso.",
+              "cn": "就在扎灌崩，我们可以欣赏三圣山唐卡壁画。唐卡是藏族特有的绘画艺术，色彩鲜艳，画工精细。这幅壁画刻画在千年的冰川石上，用明亮的色彩描绘了三座神山对应的三位菩萨：观世音菩萨代表仙乃日，文殊菩萨代表央迈勇，金刚手菩萨代表夏诺多吉，分别象征慈悲、智慧和勇气。",
+              "es": "Aquí mismo, en Zhaguanbeng, podemos ver el Mural Thangka de las Tres Montañas Sagradas. El thangka es un tipo de pintura tibetana con colores muy vivos y detalles muy finos. Este mural está hecho sobre rocas de glaciar de miles de años y muestra, con colores brillantes, a los tres Bodhisattvas de las montañas: Avalokiteshvara representa a Xiannairi; Manjushri, a Yangmaiyong; y Vajrapani, a Xianuoduoji. Simbolizan la compasión, la sabiduría y el valor.",
               "points": [
                 1
+              ]
+            },
+            {
+              "cn": "沿着步道经过活佛灵塔，就来到冲古寺，它坐落在仙乃日雪山脚下，是一座古老的藏传佛教寺院。寺前是开阔的冲古草甸，背后是高耸的雪山，景色非常美。参观寺院时，请大家顺时针绕行，不要随意拍摄僧人。",
+              "es": "Siguiendo el sendero, pasamos junto a la estupa de un Buda viviente y llegamos al Monasterio de Chonggu, un antiguo monasterio budista tibetano al pie del Pico Xiannairi. Delante tiene la amplia pradera de Chonggu y detrás, la gran montaña nevada: un paisaje precioso. Durante la visita, por favor, caminen en el sentido de las agujas del reloj y no hagan fotos a los monjes sin permiso.",
+              "points": [
+                2
               ]
             },
             {
               "cn": "从冲古寺往上走，就来到珍珠海，藏语叫「卓玛拉措」。它是仙乃日的雪水汇成的湖泊，湖水碧绿清澈，雪山倒映在湖中，就像一颗镶嵌在山谷里的绿宝石。",
               "es": "Subiendo desde el monasterio llegamos al Lago de la Perla, en tibetano «Zhuomalacuo». Se formó con el agua del deshielo del Pico Xiannairi. Su agua es verde y transparente, y la montaña nevada se refleja en ella como si fuera una esmeralda en medio del valle.",
               "points": [
-                2
+                3
               ]
             },
             {
               "cn": "大家抬头看，这就是仙乃日峰，海拔6032米，是三座神山中最高的一座。仙乃日在藏语中意为「观世音菩萨」，它的样子像一尊端坐在莲花座上的大佛，庄严而慈祥。",
               "es": "Miren hacia arriba: este es el Pico Xiannairi, de 6.032 metros, el más alto de las tres montañas sagradas. En tibetano, su nombre representa al Bodhisattva Avalokiteshvara, y su forma parece la de un gran Buda sentado sobre una flor de loto, solemne y bondadoso.",
               "points": [
-                3
+                4
               ]
             },
             {
               "cn": "继续前行，我们来到洛绒牛场。这是一片海拔四千多米的高山草甸，夏天绿草如茵，牦牛在草地上吃草，贡嘎河从草场中间流过，远处的雪山清晰可见，就像一幅宁静的画。",
               "es": "Seguimos hasta la Pradera de Luorong, una pradera de alta montaña a más de cuatro mil metros. En verano la hierba es verde y suave, los yaks pastan tranquilamente, el río Gongga cruza la pradera y al fondo se ven claramente las montañas nevadas. Parece un cuadro lleno de paz.",
               "points": [
-                4
+                5
               ]
             },
             {
               "cn": "在洛绒牛场可以看到央迈勇峰，海拔5958米，藏语意为「文殊菩萨」。它的线条柔美，雪峰洁白，就像一位安静的少女。上世纪二十年代，美国探险家洛克来到这里，称赞它是「世界上最美的雪山」之一。",
               "es": "Desde la pradera se ve el Pico Yangmaiyong, de 5.958 metros, que en tibetano representa al Bodhisattva Manjushri. Sus líneas son suaves y su nieve, muy blanca, como una joven tranquila. En los años veinte del siglo pasado, el explorador estadounidense Joseph Rock llegó hasta aquí y dijo que era una de las montañas nevadas más bellas del mundo.",
               "points": [
-                5
+                6
               ]
             },
             {
               "cn": "另一座神山是夏诺多吉峰，海拔5958米，藏语意为「金刚手菩萨」。它的山峰像一座三棱锥，线条刚劲有力，就像一位威武的勇士守护着这片土地。",
               "es": "La otra montaña sagrada es el Pico Xianuoduoji, también de 5.958 metros, que en tibetano representa al Bodhisattva Vajrapani. Tiene forma de pirámide de tres caras, con líneas fuertes, como un valiente guerrero que protege esta tierra.",
               "points": [
-                6
+                7
               ]
             },
             {
               "cn": "从洛绒牛场再往上，就是牛奶海，藏语叫「俄绒措」，海拔约4600米。湖水碧蓝，湖边有一圈乳白色的浅滩，看起来就像一碗牛奶，所以叫牛奶海。",
               "es": "Más arriba de la pradera está el Lago de Leche, en tibetano «Erongcuo», a unos 4.600 metros. El agua es azul turquesa y alrededor tiene una orilla de color blanco lechoso; parece un tazón de leche, y de ahí viene su nombre.",
               "points": [
-                7
+                8
               ]
             },
             {
               "cn": "牛奶海再往上一点是五色海，藏语叫「丹增措」，海拔约4700米。在阳光的照射下，湖面会呈现出几种不同的颜色，所以叫五色海。藏族同胞认为它是神湖，请大家不要往湖里扔东西。",
               "es": "Un poco más arriba está el Lago de los Cinco Colores, en tibetano «Danzengcuo», a unos 4.700 metros. Con la luz del sol, el agua muestra varios colores distintos, y por eso tiene este nombre. Para los tibetanos es un lago sagrado, así que, por favor, no tiren nada al agua.",
-              "points": [
-                8
-              ]
-            },
-            {
-              "cn": "最后，我们来欣赏三圣山唐卡壁画。唐卡是藏族特有的绘画艺术，色彩鲜艳，画工精细。这幅壁画用唐卡的形式描绘了三座神山和藏族同胞的信仰与生活，让我们从艺术的角度更好地理解这片圣地。",
-              "es": "Por último, vamos a ver el Mural Thangka de las Tres Montañas Sagradas. El thangka es un tipo de pintura tibetana con colores muy vivos y detalles muy finos. Este mural muestra, en estilo thangka, las tres montañas sagradas y la fe y la vida del pueblo tibetano. Así podemos entender esta tierra sagrada también a través del arte.",
               "points": [
                 9
               ]
@@ -1580,6 +1580,10 @@ const guionesData = {
         {
           "cn": "扎灌崩",
           "es": "Zhaguanbeng"
+        },
+        {
+          "cn": "三圣山唐卡壁画",
+          "es": "Mural Thangka de las Tres Montañas Sagradas"
         },
         {
           "cn": "冲古寺",
@@ -1612,10 +1616,6 @@ const guionesData = {
         {
           "cn": "五色海（丹增措）",
           "es": "Lago de los Cinco Colores (Danzengcuo)"
-        },
-        {
-          "cn": "三圣山唐卡壁画",
-          "es": "Mural Thangka de las Tres Montañas Sagradas"
         }
       ]
     },
@@ -1748,8 +1748,8 @@ const guionesData = {
               "es": "Hola a todos. Hoy les voy a hablar del patrimonio cultural inmaterial de Sichuan, que en China llamamos «feiyi»: técnicas artesanales, artes escénicas, fiestas y costumbres que se transmiten de generación en generación."
             },
             {
-              "cn": "四川是非遗大省，拥有一百多项国家级非遗代表性项目。羌族的「羌年」被列入联合国教科文组织的非遗名录，蜀锦织造技艺也是联合国教科文组织名录中「中国传统桑蚕丝织技艺」的一部分。",
-              "es": "Sichuan tiene más de cien elementos de patrimonio inmaterial de nivel nacional. El Año Nuevo del pueblo qiang está inscrito en las listas de la UNESCO, y el tejido del brocado de Shu forma parte de «la sericultura y la artesanía de la seda de China», también reconocida por la UNESCO."
+              "cn": "四川是非遗大省，拥有一百五十多项国家级非遗代表性项目。羌族的「羌年」被列入联合国教科文组织的非遗名录，蜀锦织造技艺也是联合国教科文组织名录中「中国传统桑蚕丝织技艺」的一部分。",
+              "es": "Sichuan tiene más de 150 elementos de patrimonio inmaterial de nivel nacional. El Año Nuevo del pueblo qiang está inscrito en las listas de la UNESCO, y el tejido del brocado de Shu forma parte de «la sericultura y la artesanía de la seda de China», también reconocida por la UNESCO."
             },
             {
               "cn": "这些非遗来自多民族的日常生活。蜀锦蜀绣两千多年前就很有名，成都因此被称为「锦官城」。川剧融合了外地传来的声腔和本地小戏，其中的「变脸」最受欢迎。此外还有自贡灯会、彝族火把节、道明竹编和郫县豆瓣制作技艺等。",
