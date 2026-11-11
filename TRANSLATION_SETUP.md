@@ -75,7 +75,7 @@ API Key 只存在 Cloudflare Worker 的「密钥」里，**不会出现在网页
 ### 2.3 粘贴新代码
 
 1. 在 GitHub 上打开本仓库的 `cloudflare-worker.js` 文件。
-   - 如果还没合并到 main，要先切换到分支 `claude/funny-mayer-7mdfno` 才能看到这个文件。
+   - 如果还没合并到 master，要先切换到分支 `claude/funny-mayer-7mdfno` 才能看到这个文件。
 2. 点文件右上角的「**Copy raw file**」（复制图标），复制全部内容。
 3. 回到 Cloudflare 的编辑器，`Ctrl+A` 全选，再 `Ctrl+V` 粘贴，把旧代码整个替换掉。
 4. 点右上角蓝色的「**Deploy**」，等提示部署成功。
@@ -133,7 +133,7 @@ https://shy-hall-dbd0.zhangjietong.workers.dev/translate?text=se%20encuentra&con
 
 ### 4.3 让网页用上新版本
 
-网页的新代码目前在分支 `claude/funny-mayer-7mdfno` 上。GitHub Pages 一般是从 `main` 发布的，所以需要把这个分支**合并到 main**：在 GitHub 仓库页面开一个 Pull Request 再点 Merge 即可（也可以让 Claude 帮你开 PR）。
+网页的新代码目前在分支 `claude/funny-mayer-7mdfno` 上。GitHub Pages 一般是从 `master` 发布的，所以需要把这个分支**合并到 master**：在 GitHub 仓库页面开一个 Pull Request 再点 Merge 即可（也可以让 Claude 帮你开 PR）。
 
 合并后等 1～2 分钟，用手机/电脑**强制刷新**网页（电脑 `Ctrl+F5`；手机可以在网址后面加 `?v=2` 再打开）。
 
@@ -179,7 +179,7 @@ Worker 的地址写在公开的 `config.js` 里，理论上别人也能调用它
 | `origin not allowed` | `ALLOWED_ORIGINS` 和网页地址不一致 | 把它改成浏览器地址栏里网页的 `https://域名`，或者先删掉这个变量 |
 | 打开测试地址返回的是 Supabase 的错误（如 `{"message":"no Route matched"...}`） | Worker 还是旧代码 | 回到第二步，确认粘贴了新代码并点了 Deploy |
 | 网页弹窗显示「MyMemory（备用）」 | Worker 是旧代码，或者请求超时（30 秒） | 同上；或稍后重试 |
-| 网页弹窗没有「来源」字样 | 网页还是旧版本 | 完成 4.3：合并到 main，然后强制刷新 |
+| 网页弹窗没有「来源」字样 | 网页还是旧版本 | 完成 4.3：合并到 master，然后强制刷新 |
 | 网页提示「AI 调用失败，详见 F12 控制台」 | 大模型出错，已用 Google 兜底 | 电脑上按 F12 → Console，能看到具体错误，再对照本表 |
 
 想换其他模型（比如硅基流动上的 Qwen），只需要修改 `LLM_MODEL` 的值，再 Deploy，不用改代码。
