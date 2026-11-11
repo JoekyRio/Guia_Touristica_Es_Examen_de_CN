@@ -628,7 +628,7 @@ async function translateViaWorker(text, context, type) {
   const ep = translateEndpoint();
   if (!ep || workerTranslateBroken) return null;
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 20000);
+  const timer = setTimeout(() => ctrl.abort(), 30000);
   try {
     const res = await fetch(ep, {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal,
@@ -638,7 +638,8 @@ async function translateViaWorker(text, context, type) {
     if (!res.ok) return null;
     const j = await res.json();
     if (!j || !j.meaning) return null;
-    return { meaning: String(j.meaning).trim(), note: String(j.note || '').trim(), provider: j.provider || 'google' };
+    if (j.llmError) console.warn('大模型调用失败，已改用 Google 翻译：', j.llmError);
+    return { meaning: String(j.meaning).trim(), note: String(j.note || '').trim(), provider: j.provider || 'google', llmError: j.llmError || '' };
   } catch (e) {
     console.warn('Worker 翻译失败', e);
     return null;
@@ -668,7 +669,8 @@ async function translateText(text, context, type, force) {
   if (!force && translations[key]) return translations[key];
   if (navigator.onLine === false) return null;
   const r = (await translateViaWorker(text, context, type)) || (await translateViaMyMemory(text));
-  if (r && r.provider !== 'mymemory') { translations[key] = r; persistTranslations(); }
+  // 只缓存好结果：AI 失败时的 Google 兜底不缓存，等 AI 修好后能重新拿到语境释义
+  if (r && r.provider !== 'mymemory' && !r.llmError) { translations[key] = r; persistTranslations(); }
   return r;
 }
 
@@ -698,7 +700,7 @@ async function addWithTranslate(type) {
   if (!mi) return;
   if (r && r.meaning) {
     mi.value = r.meaning;
-    if (ml) ml.textContent = '中文释义（来源：' + (PROVIDER_LABEL[r.provider] || r.provider) + '，可修改）';
+    if (ml) ml.textContent = '中文释义（来源：' + (PROVIDER_LABEL[r.provider] || r.provider) + (r.llmError ? '，AI 调用失败，详见 F12 控制台' : '') + '，可修改）';
     if (ni && r.note && !ni.value.trim()) ni.value = r.note;
   } else {
     mi.value = '';

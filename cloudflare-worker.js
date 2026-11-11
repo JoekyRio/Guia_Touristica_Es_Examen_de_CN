@@ -4,18 +4,22 @@
 // 用法：把整份代码粘贴到你现有的 Worker（Cloudflare 后台 → Workers → 你的 Worker → Edit code），
 // 点 Deploy 即可。网页里的 config.js 不用改，前端会自动请求 <proxyUrl>/translate。
 //
+// 详细图文步骤见仓库里的 TRANSLATION_SETUP.md
+//
 // 路由：
 //   POST /translate   { text, context?, type? }  →  { meaning, note, provider }
+//   GET  /translate?text=...&context=...           同上，方便直接在浏览器地址栏里测试
 //   其他所有路径       原样转发到 Supabase（与旧代理行为一致，笔记云同步继续可用）
 //
 // 翻译引擎（自动选择）：
 //   1. 配置了 LLM_API_KEY  → 大模型结合「所在句子」给出语境释义 + 原形/词性/用法（质量最好）
-//      默认用 DeepSeek（国内可直接注册充值，便宜，中文好）。也可以换成任何 OpenAI 兼容接口：
-//        LLM_BASE_URL  默认 https://api.deepseek.com
-//        LLM_MODEL     默认 deepseek-chat
-//      在 Worker → Settings → Variables and Secrets 里添加：
-//        LLM_API_KEY（类型选 Secret）= 你的 key
-//   2. 没配置 Key，或大模型调用失败 → Google 翻译（免费，无需 Key），单词会附带词典义项
+//      支持任何 OpenAI 兼容接口，在 Worker → Settings → Variables and Secrets 里添加：
+//        LLM_API_KEY   （类型选 Secret）你的 key
+//        LLM_BASE_URL  接口地址，到 /v1 为止。硅基流动：https://api.siliconflow.cn/v1
+//                      不填默认 DeepSeek 官方 https://api.deepseek.com
+//        LLM_MODEL     模型名，硅基流动例：deepseek-ai/DeepSeek-V4.1-Flash（不填默认 deepseek-chat）
+//   2. 没配置 Key，或大模型调用失败 → Google 翻译（免费，无需 Key），单词会附带词典义项；
+//      此时返回结果里会带 llmError 字段，说明大模型为什么失败，方便排查
 //
 // 可选变量：
 //   SUPABASE_URL      默认下面的常量
@@ -40,10 +44,10 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
 
     if (url.pathname === '/translate') {
-      if (request.method !== 'POST') return json({ error: 'POST only' }, 405, cors);
-      if (!originAllowed(origin, env)) return json({ error: 'origin not allowed' }, 403, cors);
+      if (request.method !== 'POST' && request.method !== 'GET') return json({ error: 'GET/POST only' }, 405, cors);
+      if (!originAllowed(origin, env)) return json({ error: 'origin not allowed（请检查 ALLOWED_ORIGINS）' }, 403, cors);
       try {
-        const body = await request.json();
+        const body = request.method === 'GET' ? Object.fromEntries(url.searchParams) : await request.json();
         const text = String(body.text || '').trim().slice(0, 200);
         const context = String(body.context || '').trim().slice(0, 600);
         const type = body.type === 'phrase' ? 'phrase' : 'vocab';
@@ -73,15 +77,18 @@ async function proxySupabase(request, url, env, cors) {
 
 // ---------- 翻译 ----------
 async function translate(text, context, type, env) {
+  let llmError = '';
   if (env.LLM_API_KEY) {
     try { return await translateLLM(text, context, type, env); }
-    catch (e) { console.log('LLM failed, fallback to Google:', e && e.message); }
+    catch (e) { llmError = String(e && e.message || e); console.log('LLM failed, fallback to Google:', llmError); }
   }
-  return translateGoogle(text);
+  const r = await translateGoogle(text);
+  if (llmError) r.llmError = llmError;
+  return r;
 }
 
 async function translateLLM(text, context, type, env) {
-  const base = (env.LLM_BASE_URL || 'https://api.deepseek.com').replace(/\/$/, '');
+  const base = (env.LLM_BASE_URL || 'https://api.deepseek.com').trim().replace(/\/+$/, '').replace(/\/chat\/completions$/, '');   // 容错：多填了 /chat/completions 也能用
   const model = env.LLM_MODEL || 'deepseek-chat';
   const system = '你是给中国学生讲解西班牙语的老师，学生在准备西班牙语导游证考试。'
     + '学生会给你一个从导游词里选中的西语词或短语，以及它所在的句子。请严格按 JSON 输出，不要输出其他内容：\n'
@@ -91,21 +98,27 @@ async function translateLLM(text, context, type, env) {
     + ' "usage": "一句话中文说明：变位形式（时态、人称）、固定搭配或在导游词里的常见用法，最多 50 个字"}';
   const user = `选中的${type === 'phrase' ? '短语' : '词'}：${text}\n所在句子：${context || '（无）'}`;
 
-  const res = await fetch(base + '/chat/completions', {
+  const payload = {
+    model,
+    messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
+    temperature: 0.2,
+    max_tokens: 1024,   // 留足余量：部分模型会先输出思考过程，太小会把答案截断
+    response_format: { type: 'json_object' },
+  };
+  const call = body => fetch(base + '/chat/completions', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + env.LLM_API_KEY },
-    body: JSON.stringify({
-      model,
-      messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
-      temperature: 0.2,
-      max_tokens: 300,
-      response_format: { type: 'json_object' },
-    }),
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + env.LLM_API_KEY.trim() },
+    body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error('LLM HTTP ' + res.status + ' ' + (await res.text()).slice(0, 200));
+  let res = await call(payload);
+  // 有些模型/平台不支持 response_format，报 400 时去掉它重试一次
+  if (res.status === 400) { delete payload.response_format; res = await call(payload); }
+  if (!res.ok) throw new Error('LLM HTTP ' + res.status + ' ' + (await res.text()).slice(0, 300));
   const data = await res.json();
   const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '';
-  const o = JSON.parse(content.replace(/^```(?:json)?\s*|\s*```$/g, ''));
+  const m = content.match(/\{[\s\S]*\}/);   // 兼容模型在 JSON 前后多说了几句话
+  if (!m) throw new Error('LLM 没有返回 JSON：' + content.slice(0, 200));
+  const o = JSON.parse(m[0]);
   if (!o.meaning) throw new Error('LLM returned no meaning');
 
   const parts = [];
